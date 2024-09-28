@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MiAlertaMVC</title>
+
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MiAlertaMVC.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon.ico">
+    
+    <link href="~/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/lib/morrisjs/morris.css" rel="stylesheet" />
+    <link href="~/lib/c3-master/c3.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/pages/dashboard1.css" rel="stylesheet" />
+    <link href="~/css/colors/default.css" id="theme" rel="stylesheet" />
+    <style>
+        /* Custom styles for the sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            height: 100%;
+            padding: 48px 0 0;
+            background-color: #f8f9fa;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon --><b>
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="~/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo icon -->
+                        <img src="~/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text --><span>
+                        <!-- dark Logo text -->
+                        <img src="~/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo text -->
+                        <img src="~/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                    </span>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                           href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- Search -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item hidden-xs-down search-box">
+                        <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a>
+                        </form>
+                    </li>
+                </ul>
+                <!-- ============================================================== -->
+                <!-- User profile and search -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav my-lg-0">
+                    <!-- ============================================================== -->
+                    <!-- Profile -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown u-pro">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                           id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i> <span class="hidden-md-down mx-2" id="lblNombreUsuario"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Index", "Perfil")">
+                                    <i class="fa fa-user-circle me-2"></i> Ver perfil
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Logout", "Account")">
+                                    <i class="fa fa-sign-out-alt me-2"></i> Cerrar sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            @{
+                var email = Context.Session.GetString("email");
+            }
+            <nav class="sidebar-nav">
+
+                <ul id="sidebarnav">
+                    @if (email == "gonzalogaldamesq@gmail.com" || email == "raul@ingetel.cl")
+                    {
+                        <li>
+                            <a id="linkHome" class="waves-effect waves-dark" asp-controller="Home" asp-action="Index" aria-expanded="false">
+                                <i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="linkUser" class="waves-effect waves-dark" asp-controller="User" asp-action="Index" aria-expanded="false">
+                                <i class="fa fa-users"></i><span class="hide-menu">Usuarios</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="linkCommunityn" class="waves-effect waves-dark" asp-controller="Community" asp-action="Index" aria-expanded="false">
+                                <i class="fa fa-building"></i><span class="hide-menu">Comunidades</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="linkSubscripcion" class="waves-effect waves-dark" asp-controller="Subscripcion" asp-action="Index" aria-expanded="false">
+                                <i class="fa fa-credit-card"></i><span class="hide-menu">Subscripciones</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="linkLog" class="waves-effect waves-dark" asp-controller="Log" asp-action="Log" aria-expanded="false">
+                                <i class="fa fa-exclamation-triangle"></i><span class="hide-menu">Log/errores</span>
+                            </a>
+                        </li>
+                    }
+
+                    <li>
+                        <a id="linkUsuarioComunidad" class="waves-effect waves-dark" asp-controller="UsuarioComunidad" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-user-o"></i><span class="hide-menu">Usuario Comunidad</span>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a id="linkComunidad" class="waves-effect waves-dark" asp-controller="Comunidad" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-users"></i><span class="hide-menu">Comunidad/es</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="linkAlertas" class="waves-effect waves-dark" asp-controller="AlertasComunidad" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-users"></i><span class="hide-menu">Alertas Comunidad/es</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="linkPerfil" class="waves-effect waves-dark" asp-controller="Perfil" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i><span class="hide-menu">Perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="linkLogout" class="waves-effect waves-dark" asp-controller="Account" asp-action="Logout" aria-expanded="false">
+                            <i class="fa fa-sign-out"></i><span class="hide-menu">Cerrar sesión</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <!-- End Sidebar navigation -->
+            @* <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> *@
+            @* </div> *@
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+
+
+
+
+    <div class="">
+        @* <div id="sidebarMenu" class="sidebar bg-light collapse d-sm-block">
+        <div class="position-sticky">
+        <ul class="nav flex-column">
+        <li class="nav-item">
+        <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </li>
+        </ul>
+        </div>
+        </div> *@
+
+        <div class="">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+    @* <script src="../assets/node_modules/jquery/jquery.min.js"></script> *@
+    <!-- Bootstrap popper Core JavaScript -->
+    @* <script src="../assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script> *@
+    <!-- slimscrollbar scrollbar JavaScript -->
+    @* <script src="js/perfect-scrollbar.jquery.min.js"></script> *@
+    <script src="~/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    @* <script src="js/waves.js"></script> *@
+    <script src="~/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/js/sidebarmenu.js"></script>
+    @* <script src="js/sidebarmenu.js"></script> *@
+    <!--Custom JavaScript -->
+    @* <script src="js/custom.min.js"></script> *@
+    <script src="~/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    @* <script src="../assets/node_modules/raphael/raphael-min.js"></script> *@
+    <script src="~/lib/raphael/raphael-min.js"></script>
+    @* <script src="../assets/node_modules/morrisjs/morris.min.js"></script> *@
+    <script src="~/lib/morrisjs/morris.min.js"></script>
+
+    <!--c3 JavaScript -->
+    @* <script src="../assets/node_modules/d3/d3.min.js"></script> *@
+    <script src="~/lib/d3/d3.min.js"></script>
+    @* <script src="../assets/node_modules/c3-master/c3.min.js"></script> *@
+    <script src="~/lib/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    @* <script src="js/dashboard1.js"></script> *@
+    <script src="~/js/dashboard1.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Llamada a la acción para obtener el nombre de usuario
+            $.ajax({
+                url: '@Url.Action("GetNombreUsuario", "Account")',
+                type: 'GET',
+                success: function (data) {
+                    if (data) {
+                        $("#lblNombreUsuario").text(data);
+                    }
+                }
+            });
+        });
+
+    </script>
+
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

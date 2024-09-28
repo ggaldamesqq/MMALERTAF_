@@ -1,0 +1,409 @@
+﻿@model IEnumerable<MiAlertaMVC.Models.AlertasComunidadViewModel>
+@{
+    ViewData["Title"] = "Alertas Comunidad";
+    var comunidadId = ViewBag.ComunidadId as int? ?? 0;
+    var comunidades = ViewBag.Comunidades as List<MiAlertaMVC.Models.Comunidad>;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uP5ceN8L0bc4GEK8tjHtQQUffryaHdo"></script>
+
+<style type="text/css">
+    .table tbody tr:hover {
+        cursor: pointer;
+        background-color: #20aee3;
+        color: white;
+    }
+
+    /* Estilo para la fila seleccionada */
+    .table tbody tr.selected {
+        background-color: #20aee3;
+        color: white;
+    }
+
+    .red-row {
+        background-color: #f28b82; /* Rojo pastel */
+        color: black;
+    }
+
+    .yellow-row {
+        background-color: #fff475; /* Amarillo pastel */
+        color: black;
+    }
+
+    .green-row {
+        background-color: #ccff90; /* Verde pastel */
+        color: black;
+    }
+
+</style>
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Alertas Comunidades</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Alertas Comunidades</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">Detalles</h4>
+                                <h6 class="card-subtitle">de <code>Alertas de Comunidades</code></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+
+                            <form method="get" asp-action="Index" class="d-flex flex-column flex-md-row  mb-3">
+
+                                @{
+                                    // Define una variable para el valor seleccionado
+                                    var selectedComunidadId = ViewBag.ComunidadId as int? ?? 0;
+                                }
+                                <div class="d-flex align-items-center" style="place-content:space-between">
+                                    <select id="comunidadId" class="form-select" name="idComunidad" onchange="this.form.submit()">
+                                        <!option value="0" @(selectedComunidadId == 0 ? "selected" : "")>Todas las comunidades</!option>
+                                        @foreach (var comunidad in comunidades)
+                                        {
+                                            <!option value="@comunidad.IDComunidad" @(selectedComunidadId == comunidad.IDComunidad ? "selected" : "")>
+                                                @comunidad.IDComunidad - @comunidad.Descripcion
+                                            </!option>
+                                        }
+                                    </select>
+                                    <div class="ml-auto">
+                                        <button type="button" class="btn btn-success" id="exportButton">Exportar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+                            <div class="table-responsive">
+                                <table id="communityTable" class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Comunidad</th>
+                                            <th>Texto</th>
+                                            <th>Nombre</th>
+                                            <th>Correo</th>
+                                            <th>Direccion</th>
+                                            <th>NumeroTelefonico</th>
+                                            <th>Fecha</th>
+                                            <th>Latitud</th>
+                                            <th>Longitud</th>
+                                            <th>IDUsuarioNotificacion</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var community in Model)
+                                        {
+                                            string rowClass = "ok-row"; // Clase por defecto
+
+                                            // Asignación de la clase basada en el tipo de emergencia
+                                            if (community.TextoEmergencia.Contains("¡ASALTO!"))
+                                            {
+                                                rowClass = "red-row";
+                                            }
+                                            else if (community.TextoEmergencia.Contains("¡INCENDIO!"))
+                                            {
+                                                rowClass = "yellow-row";
+                                            }
+                                            else if (community.TextoEmergencia.Contains("¡EMERGENCIA MÉDICA!"))
+                                            {
+                                                rowClass = "green-row";
+                                            }
+
+                                            <tr class="@rowClass">
+                                                <td class="text-end">@community.IDComunidad</td>
+                                                <td>@community.Descripcion</td>
+                                                <td>@community.TextoEmergencia</td>
+                                                <td>@community.Nombre</td>
+                                                <td>@community.Correo</td>
+                                                <td>@community.Direccion</td>
+                                                <td>@community.NumeroTelefonico</td>
+                                                <td>@community.FechaHora.ToString("yyyy-MM-dd hh:mm:ss")</td>
+                                                <td class="text-end">@community.Latitud</td>
+                                                <td class="text-end">@community.Longitud</td>
+                                                <td>@community.IDUsuarioNotificacion</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Detalles de la Información</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Map Container -->
+                <div id="map" style="height: 300px;"></div>
+
+                <!-- Table Container -->
+                <div class="table-responsive mt-3">
+                    <table id="" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Comunidad</th>
+                                <th>Texto</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Direccion</th>
+                                <th>NumeroTelefonico</th>
+                                <th>Fecha</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                                <th>IDUsuarioNotificacion</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var community in Model)
+                            {
+                                string rowClass = "ok-row"; // Default class
+                                <tr class="@rowClass">
+                                    <td class="text-end">@community.IDComunidad</td>
+                                    <td>@community.Descripcion</td>
+                                    <td>@community.TextoEmergencia</td>
+                                    <td>@community.Nombre</td>
+
+                                    <td>@community.Correo</td>
+                                    <td>@community.Direccion</td>
+                                    <td>@community.NumeroTelefonico</td>
+                                    <td>@community.FechaHora.ToString("yyyy-MM-dd hh:mm:ss")</td>
+                                    <td class="text-end">@community.Latitud</td>
+                                    <td class="text-end">@community.Longitud</td>
+                                    <td>@community.IDUsuarioNotificacion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="communityModal" tabindex="-1" aria-labelledby="communityModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="communityModalLabel">Detalles de la Comunidad</h5>
+                <button type="button" class="close" id="headerCloseButton" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="communityForm">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="modalIDComunidad">ID Comunidad</label>
+                            <input type="text" class="form-control" id="modalIDComunidad" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="modalTotalUsuarios">Usuarios Actuales</label>
+                            <input type="text" class="form-control" id="modalTotalUsuarios" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="modalDescripcion">Descripción</label>
+                            <input type="text" class="form-control" id="modalDescripcion">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="modalFechaCreacion">Fecha de Creación</label>
+                            <input type="date" class="form-control" id="modalFechaCreacion" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="modalIDUsuario">ID Usuario</label>
+                            <input type="text" class="form-control" id="modalIDUsuario" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="modalCodigoIngreso">Código Ingreso</label>
+                            <input type="text" class="form-control" id="modalCodigoIngreso" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="modalEsConDominio">Es Con Dominio</label>
+                            <input type="text" class="form-control" id="modalEsConDominio" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="saveChangesButton">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Cierre del modal
+        document.getElementById('headerCloseButton').addEventListener('click', function () {
+            $('#infoModal').modal('hide'); // Cierra el modal
+        });
+        document.getElementById('btnCerrarModal').addEventListener('click', function () {
+            $('#infoModal').modal('hide'); // Cierra el modal
+        });
+
+        // Manejo de clic en las filas de la tabla para abrir el nuevo modal
+        $('#communityTable tbody tr').on('click', function () {
+            // Obtener los datos de la fila
+            var id = $(this).find('td').eq(0).text().trim();
+            var comunidad = $(this).find('td').eq(1).text().trim();
+            var texto = $(this).find('td').eq(2).text().trim();
+            var nombre = $(this).find('td').eq(3).text().trim();
+            var correo = $(this).find('td').eq(4).text().trim();
+            var direccion = $(this).find('td').eq(5).text().trim();
+            var numeroTelefonico = $(this).find('td').eq(6).text().trim();
+            var fecha = $(this).find('td').eq(7).text().trim();
+            var latitud = parseFloat($(this).find('td').eq(8).text().trim().replace(',', '.')); // Reemplaza coma por punto
+            var longitud = parseFloat($(this).find('td').eq(9).text().trim().replace(',', '.')); // Reemplaza coma por punto
+            var idUsuarioNotificacion = $(this).find('td').eq(10).text().trim();
+
+            // Actualizar la tabla dentro del modal con la información seleccionada
+            var tableContent = `
+                <tr>
+                    <td>${id}</td>
+                    <td>${comunidad}</td>
+                    <td>${texto}</td>
+                    <td>${nombre}</td>
+                    <td>${correo}</td>
+                    <td>${direccion}</td>
+                    <td>${numeroTelefonico}</td>
+                    <td>${fecha}</td>
+                    <td>${latitud}</td>
+                    <td>${longitud}</td>
+                    <td>${idUsuarioNotificacion}</td>
+                </tr>
+            `;
+            $('#infoModal .table tbody').html(tableContent);
+
+            // Inicializar o actualizar el mapa en el modal
+            initializeMap(latitud, longitud);
+
+            // Mostrar el modal
+            $('#infoModal').modal('show');
+        });
+
+        // Function to initialize or update the map
+        function initializeMap(lat, lng) {
+            // Convert the latitude and longitude to floats
+            lat = parseFloat(lat);
+            lng = parseFloat(lng);
+
+            // Create a map centered at the provided coordinates
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: lat, lng: lng },
+                zoom: 17
+            });
+
+            // Add a marker at the provided coordinates
+            var marker = new google.maps.Marker({
+                position: { lat: lat, lng: lng },
+                map: map
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('exportButton').addEventListener('click', function () {
+            const selectElement = document.getElementById('comunidadId');
+            console.log("OK - funcion click otorgada correctamente.");
+
+            if (selectElement) {
+                const selectedOptionsTexts = [];
+
+                // Recorrer todas las opciones del select y obtener los textos
+                for (let i = 0; i < selectElement.options.length; i++) {
+                    const optionText = selectElement.options[i].text;
+                    selectedOptionsTexts.push(optionText); // Agregar el texto al array
+                }
+
+                console.log(selectedOptionsTexts); // Aquí obtienes todos los textos de las opciones
+
+                const formData = new FormData();
+
+                // Enviar el array como una cadena JSON
+                formData.append('idComunidades', JSON.stringify(selectedOptionsTexts));
+
+                fetch('/AlertasComunidad/ExportToExcel', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                    },
+                    body: formData
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            console.log("ERROR");
+                            throw new Error('Error en la descarga del archivo');
+                        }
+                        // Obtener el nombre del archivo desde los headers de la respuesta
+                        const contentDisposition = response.headers.get('Content-Disposition');
+                        let fileName = 'exported_data.xlsx'; // Valor predeterminado
+                        if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                            const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
+                            if (matches != null && matches[1]) {
+                                fileName = matches[1].replace(/['"]/g, '');
+                            }
+                        }
+                        return response.blob().then(blob => ({ blob, fileName }));
+                    })
+                    .then(({ blob, fileName }) => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            } else {
+                console.error("El elemento con id 'planSelect' no se encontró en el DOM.");
+            }
+        });
+    });
+</script>

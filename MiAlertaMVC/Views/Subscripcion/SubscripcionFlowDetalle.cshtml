@@ -1,0 +1,54 @@
+﻿@model List<MiAlertaMVC.Models.SuscripcionDetalleViewModel>
+@{
+    var suscripciones = ViewBag.ListadoFlowSubscripciones as List<MiAlertaMVC.Models.SuscripcionDetalleViewModel>;
+}
+
+
+<div class="col-12">
+    <div class="table-responsive">
+        <table class="table no-wrap pppp">
+            <thead>
+                <tr>
+                    <th>SubscriptionId</th>
+                    <th>CustomerId</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                    <th>Subscription Start</th>
+                    <th>Subscription End</th>
+                    <th>Period Start</th>
+                    <th>Period End</th>
+                    <th>Status</th>
+                    <th>Plan ID</th>
+                    <th>Plan EXTERNAL ($)</th>
+                    <th>Morose</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var suscripcion in Model)
+                {
+                    var rowClass = suscripcion.status == 1 ? "ok-row" : "error-row";
+                    <tr class="@rowClass">
+                        <td>@suscripcion.SubscriptionId</td>
+                        <td>@suscripcion.CustomerId</td>
+                        <td>@suscripcion.Name</td>
+                        <td>@suscripcion.Created.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@suscripcion.subscription_start?.ToString("yyyy-MM-dd")</td>
+                        <td>@suscripcion.subscription_end?.ToString("yyyy-MM-dd")</td>
+                        <td>@suscripcion.period_start.ToString("yyyy-MM-dd")</td>
+                        <td>@suscripcion.period_end.ToString("yyyy-MM-dd")</td>
+                        <td>@suscripcion.status</td>
+                        <td>@suscripcion.planId</td>
+                        <td>@suscripcion.PlanExternalId</td>
+                        <td>@suscripcion.Morose</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+    </script>
+}

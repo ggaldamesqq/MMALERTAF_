@@ -1,0 +1,120 @@
+﻿@model MiAlertaMVC.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/MiAlertaMVC.styles.css" asp-append-version="true" />
+<link rel="icon" type="image/png" sizes="16x16" href="~/favicon.ico">
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+<link href="~/lib/morrisjs/morris.css" rel="stylesheet" />
+<link href="~/lib/c3-master/c3.min.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+<link href="~/css/pages/dashboard1.css" rel="stylesheet" />
+<link href="~/css/colors/default.css" id="theme" rel="stylesheet" />
+<link href="~/css/login.css" rel="stylesheet" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Custom styles for background and text color -->
+<style>
+    body {
+        background-color: #4A5058;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .form-label,
+    .form-check-label,
+    h2 {
+        color: white; /* Set form labels and headers to white */
+    }
+
+    .card {
+        background-color: #3a3f47; /* Slightly darker background for the card */
+        border: none;
+    }
+
+    .input-group-text {
+        background-color: #ffffff; /* Keep icon background white for contrast */
+        color: #495057; /* Default color for icon text */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary button color */
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darken button on hover */
+        }
+
+    .form-control {
+        background-color: #495057; /* Darker input field */
+        color: white; /* White text in input */
+        border: 1px solid #ced4da; /* Light border */
+    }
+
+        .form-control:focus {
+            background-color: #495057;
+            color: white;
+        }
+
+    .text-danger {
+        color: #dc3545 !important; /* Keep error messages red */
+    }
+</style>
+
+<div class="d-flex align-items-center" style="min-height: 100vh; align-content:center;">
+    <div class="container">
+        <div class="card shadow-lg border-0 rounded-3" style="max-width: 750px; margin: auto;">
+            <div class="card-body p-5">
+                <!-- Logo -->
+                <div class="text-center mb-4">
+                    <a href="/inicio">
+                        <img src="~/images/logo_.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+
+                    </a>
+                </div>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <h2 class="text-center mb-4">Iniciar sesión</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group mb-3">
+                        <label for="Username" class="form-label">Correo</label>
+                        <div class="input-group">
+                            <!-- Icono de usuario -->
+                            <span class="input-group-text bg-white border-end-0 rounded-start-pill"><i class="fa fa-user"></i></span>
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control rounded-end-pill shadow-sm", placeholder = "Correo" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Password" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <!-- Icono de candado -->
+                            <span class="input-group-text bg-white border-end-0 rounded-start-pill"><i class="fa fa-lock"></i></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control rounded-end-pill shadow-sm", placeholder = "Contraseña" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill my-3 shadow-sm">Iniciar sesión</button>
+                    <p class="text-center text-white mt-3">
+                        ¿Aún no tienes cuenta? Regístrate en nuestra aplicación móvil. <br />
+                        Descárgala desde la <a href="/inicio#download" class="text-primary">tienda de aplicaciones</a>.
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

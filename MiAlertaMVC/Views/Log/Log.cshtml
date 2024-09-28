@@ -1,0 +1,124 @@
+﻿@using MiAlertaMVC.Extensiones
+@{
+    ViewData["Title"] = "Log";
+}
+@model LogPageViewModel
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Log / Historial</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Log</li>
+                </ol>
+            </div>
+           
+        </div>
+        <div class="" id="sales-chart" style="height: 355px; display:none !important"></div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">LOG / HISTÓRIAL</h4>
+                                <h6 class="card-subtitle">Errores <code>Aplicación/BBDD</code></h6>
+                            </div>
+                            <div class="ms-auto">
+                                <ul class="list-inline text-center font-12">
+                                    <li>
+                                        <a asp-action="Log">
+                                            <i class="fa fa-circle" style="color: gray;"></i>
+                                            TODOS <span class="badge bg-secondary">@Model.LogCounts.Values.Sum()</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Log" asp-route-filter="OK">
+                                            <i class="fa fa-circle" style="color: green;"></i>
+                                            OK <span class="badge bg-success">@Model.LogCounts.GetValueOrDefault("OK", 0)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Log" asp-route-filter="ERROR">
+                                            <i class="fa fa-circle" style="color: red;"></i>
+                                            ERROR <span class="badge bg-danger">@Model.LogCounts.GetValueOrDefault("ERROR", 0)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Log" asp-route-filter="ADVERTENCIA">
+                                            <i class="fa fa-circle" style="color: yellow;"></i>
+                                            ADVERTENCIA <span class="badge bg-warning">@Model.LogCounts.GetValueOrDefault("ADVERTENCIA", 0)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="d-none">#</th>
+                                                    <th>FechaCreacion</th>
+                                                    <th>Funcion</th>
+                                                    <th>Texto</th>
+                                                    <th>Categoria</th>
+                                                    <th>Respuesta</th>
+                                                    <th>Campo1</th>
+                                                    <th>IDUsuario</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model != null)
+                                                {
+                                                    foreach (var log in Model.Logs)
+                                                    {
+                                                        var rowClass = log.Respuesta == "ERROR" ? "error-row" :
+                                                        log.Respuesta == "OK" ? "ok-row" : "";
+
+                                                        <tr class="@rowClass table-row no-wrap">
+                                                            <td class="d-none">@log.IDLog</td>
+                                                            <td>@log.FechaCreacion.ToString("dd-MM-yyyy HH:mm:ss")</td>
+                                                            <td>@log.FechaCreacion.ObtenerTiempoTranscurrido()</td>
+                                                            <td>@log.Funcion</td>
+                                                            <td>@log.Texto</td>
+                                                            <td>@log.Categoria</td>
+                                                            <td>@log.Respuesta</td>
+                                                            <td>@log.Campo1</td>
+                                                            <td>@log.IDUsuario</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr>
+                                                        <td colspan="8">No hay datos disponibles.</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Sales Chart -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Projects of the Month -->
+        <!-- ============================================================== -->
+    
+</div>

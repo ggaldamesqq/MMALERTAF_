@@ -1,0 +1,126 @@
+﻿@using MiAlertaMVC.Extensiones
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Perfil</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Perfil</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="" id="sales-chart" style="height: 355px; display:none !important"></div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">Información personal</h4>
+                                <h6 class="card-subtitle">Datos <code>Usuario</code></h6>
+                            </div>
+                            <div class="ms-auto">
+                                <!-- Puedes agregar botones u otros elementos aquí si es necesario -->
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                @if (Model != null)
+                                {
+                                    <div class="card-body">
+                                        <form asp-action="ActualizarPerfil" method="post">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Nombre">Nombre</label>
+                                                        <input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Email">Email</label>
+                                                        <input type="email" class="form-control" disabled id="Email" name="Email" value="@Model.Email" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Direccion">Dirección</label>
+                                                        <input type="text" class="form-control" id="Direccion" name="Direccion" value="@Model.Direccion" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="NumeroTelefonico">Número Telefónico</label>
+                                                        <input type="text" class="form-control" id="NumeroTelefonico" name="NumeroTelefonico" value="@Model.NumeroTelefonico" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Token">Token</label>
+                                                        <input type="text" class="form-control" disabled id="Token" name="Token" value="@Model.Token" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Password">Contraseña</label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" id="Password" name="Password" value="@Model.Password" />
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                        </form>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <p>No se pudo cargar la información del usuario.</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function (e) {
+        const passwordInput = document.getElementById('Password');
+        const icon = this.querySelector('i');
+
+        // Toggle the type attribute
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+</script>

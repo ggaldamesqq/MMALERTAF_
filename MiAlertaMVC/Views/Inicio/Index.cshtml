@@ -1,0 +1,643 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    Layout = null;
+}
+
+<!-- Bootstrap and Custom Styles -->
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="icon" type="image/png" sizes="16x16" href="~/favicon.ico">
+<link href="~/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+<link href="~/lib/morrisjs/morris.css" rel="stylesheet" />
+<link href="~/lib/c3-master/c3.min.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+<link href="~/css/pages/dashboard1.css" rel="stylesheet" />
+<link href="~/css/colors/default.css" id="theme" rel="stylesheet" />
+
+<!-- Custom CSS for this page -->
+<style>
+
+    #details .card {
+        height: 350px; /* Ajusta la altura según tu preferencia */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #details .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-width: -webkit-fill-available;
+    }
+
+    #details .card:hover {
+        transform: translateY(-10px); /* Efecto de elevación */
+    }
+
+        #details .card:hover .fa {
+            transform: scale(1.2); /* Aumenta el tamaño del icono en hover */
+            color: #007bff; /* Cambia el color del icono en hover */
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+    body {
+        scroll-behavior: smooth;
+        font-family: 'Roboto', sans-serif;
+        background-color: #2c3137;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    #header {
+        background: #343a40;
+        color: #ffffff;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+        #header a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            font-family: "Montserrat", sans-serif;
+            position: relative; /* Necesario para posicionar el ::after */
+        }
+
+            #header a::after {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 2px;
+                background-color: #ffffff;
+                left: 0;
+                bottom: -3px;
+                transition: width .5s ease-in-out; /* Transición de 1 segundo */
+            }
+
+            #header a:hover::after {
+                width: 100%; /* Línea se extiende a todo el ancho */
+            }
+
+            #header a:hover {
+                color: #f1c40f;
+            }
+
+    .btn-primary-custom {
+        background-color: #f1c40f;
+        color: #343a40;
+        border: none;
+        border-radius: 50px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #d4ac0d;
+            color: #ffffff;
+        }
+
+    h1, h2, h3 {
+        font-weight: 700;
+        color: #333;
+    }
+
+    p.lead {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+
+    .form-control {
+        border-radius: 0.5rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+        .form-control::placeholder {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    footer {
+        background-color: #333;
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+    }
+
+        footer p,
+        footer a {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+            footer a:hover {
+                color: #f1c40f;
+                text-decoration: underline;
+            }
+
+    .img-fluid.rounded-border {
+        border-radius: 15px; /* Ajusta el radio de los bordes como desees */
+        max-width: 100%;
+        height: auto;
+    }
+
+    .section.bg-dark {
+        background-color: #003366 !important; /* Fondo azul oscuro */
+        color: #ffffff !important; /* Letras blancas */
+    }
+
+    .section .display-1 {
+        /* font-family: 'Arial Rounded MT Bold', Arial, sans-serif !important; /* Fuente redonda */ */
+    }
+
+    .section .lead {
+        /* font-family: 'Arial Rounded MT Bold', Arial, sans-serif !important; /* Fuente redonda */ */
+    }
+
+    .btn.btn-light {
+        background-color: #ffffff !important; /* Fondo blanco para el botón */
+        color: #003366 !important; /* Letras del botón en azul oscuro */
+        border: 1px solid #003366 !important; /* Borde azul oscuro para el botón */
+    }
+
+        .btn.btn-light:hover {
+            background-color: #e6e6e6 !important; /* Fondo gris claro en hover */
+            color: #003366 !important; /* Letras del botón en azul oscuro */
+        }
+
+
+    .card .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: transparent !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        position: relative;
+        overflow: hidden; /* Para asegurar que el color se quede dentro del círculo */
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .card .icon-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160%;
+            height: 160%;
+            background-color: rgba(173, 216, 230, 0.1); /* Color más claro, azul claro */
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 1.5s ease-in-out; /* Transición más lenta */
+            z-index: 1; /* Coloca la transición por debajo del ícono */
+        }
+
+    .card i {
+        position: relative;
+        z-index: 2; /* Asegura que el ícono esté por encima de la transición */
+        color: #007bff;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .card:hover .icon-circle::before {
+        transform: translate(-50%, -50%) scale(1); /* Expande el color hasta llenar el círculo */
+    }
+
+    .card:hover i {
+        color: #black !important; /* Cambia el color del ícono para contrastar */
+    }
+
+
+    .fade-in {
+        opacity: 0 !important; /* Inicialmente invisible */
+        transition: opacity 1s ease-in !important /* Transición suave de 1 segundo */
+    }
+
+        .fade-in.visible {
+            opacity: 1 !important;
+        }
+
+    .card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid white !important;
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease !important;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px white !important;
+            background-color: #b3e5fc !important; /* Azul claro */
+            transform: translateY(-5px) !important; /* Eleva la tarjeta */
+        }
+
+    .card-background {
+        width: 100%;
+        height: 200px; /* Ajusta la altura según tus necesidades */
+        background-size: cover;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+    }
+
+    .card-body {
+        padding-top: 5px;
+        text-align: left;
+        background-color: #1b1e22;
+    }
+
+    .icon-circle {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .card-title {
+        color: white !important;
+    }
+
+    .card-text {
+        color: #67757c !important;
+    }
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Navigation Menu with Logo -->
+<!-- Navigation Menu with Logo to the Left and Centered Menu -->
+<!-- Navigation Menu with Hamburger for Mobile View -->
+<header id="header">
+    <nav class="container">
+        <div class="justify-content-between align-items-center" style="display:flex !important">
+            <!-- Logo on the left -->
+            <div>
+                <img src="/images/logo_.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+            </div>
+
+            <!-- Navigation Links Centered on Desktop -->
+            <div class="d-none d-md-flex justify-content-center flex-grow-1">
+                <a href="#presentation" class="mx-3">Inicio</a>
+                <a href="#details" class="mx-3">Servicios</a>
+                <a href="#basetuto" class="mx-3">Detalles</a>
+                <a href="#download" class="mx-3">Descargar APP</a>
+                <a href="#contact" class="mx-3">Contacto</a>
+                <a href="/login" class="mx-3">Iniciar Sesión</a>
+            </div>
+
+            <!-- Hamburger Menu Button for Mobile View (Aligned to the right) -->
+            <div class="d-md-none">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Font Awesome Icon for Hamburger Menu -->
+                    <i class="fa fa-bars fa-b fa-2x"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Collapsible Menu -->
+        <div class="collapse navbar-collapse d-md-none" id="navbarNav"> 
+            <div class="d-flex flex-column text-center">
+                <a href="#presentation" class="py-1">Inicio</a>
+                <a href="#details" class="py-1">Servicios</a>
+                <a href="#basetuto" class="py-1">Detalles</a>
+                <a href="#download" class="py-1">Descargar APP</a>
+                <a href="#contact" class="py-1">Contacto</a>
+                <a href="/login" class="py-1">Iniciar Sesión</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Add this script if Bootstrap is not yet included -->
+
+
+
+<!-- Presentation Section -->
+<section id="presentation" style="background-color: #2c3137" class="section text-light py-5">
+    <div class="container">
+        <div class="row align-items-center mx-3">
+            <div class="col-lg-6">
+                <h1 class="display-1 text-white" style="line-height:0.9 !important; font-weight: bolder;">Conecta y Protege tu Comunidad</h1>
+                @* <p class="lead" style="color: #929292 !important;">La forma más fácil de mantenerte informado y seguro con alertas de emergencia en tiempo real, estés donde estés.</p> *@
+                <p><i class="fa fa-share-square me-2"></i>La forma más fácil de mantenerte informado y seguro con alertas de emergencia en tiempo real, estés donde estés.</p>
+
+                <a href="#" class="btn  btn-dark mt-3">Ver / Descargar</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end">
+                <img src="/images/principal.png" alt="mialerta principal imagen" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Details Section -->
+<section id="details" class="section text-center   fade-in" style="
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/bg_telefono.png');
+  background-size: cover;
+  background-position: center;">
+    <div class="container">
+        <h1 class="h1 text-start text-white    mb-5" style="line-height:0.9 !important; font-weight: bolder;">Servicios de MiAlerta</h1>
+        <div class="row text-center my-3">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style=" border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/1.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left">
+                            <i class="fa fa-comments fa-2x text-white"></i>
+                        </div>
+                        <h5 class="card-title text-left">Chat Comunitario</h5>
+                        <p class="card-text text-left">Conéctate con tus vecinos y mantén la comunicación fluida con el chat en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style=" border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/2.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left">
+                            <i class="fa fa-bell fa-2x text-white"></i>
+                        </div>
+                        <h5 class="card-title text-left">Alertas de Emergencia</h5>
+                        <p class="card-text text-left">Envía alertas de emergencia que activan una alarma en los teléfonos de los miembros de tu comunidad.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style="border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/3.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left">
+                            <i class="fa fa-map-marker fa-2x text-white"></i>
+                        </div>
+                        <h5 class="card-title text-left">Mapa en Tiempo Real</h5>
+                        <p class="card-text text-left">Visualiza las alertas en un mapa en tiempo real para saber exactamente dónde ocurren.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style=" border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/4.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left ">
+                            <i class="fa fa-users fa-2x text-white"></i>
+                        </div>
+                        <h5 class="card-title text-left">Grupos </h5>
+                        <p class="card-text text-left">Crea y únete a grupos específicos dentro de tu comunidad para una comunicación más dirigida.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style=" border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/5.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left">
+                            <i class="fa fa-history fa-2x text-white" style="color:gray"></i>
+                        </div>
+                        <h5 class="card-title text-left">Historial</h5>
+                        <p class="card-text text-left">Consulta el historial de alertas enviadas por los usuarios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm" style=" border-radius: 2rem;">
+                    <div class="card-background" style="background-image: url('/images/6.png');"></div> <!-- Imagen de fondo -->
+                    <div class="card-body">
+                        <div class="icon-circle text-left">
+                            <i class="fa fa-money fa-2x text-success"></i>
+                        </div>
+                        <h5 class="card-title text-left">Gratis</h5>
+                        <p class="card-text text-left">De uso libre hasta 12 personas en las comunidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Download App Section -->
+<section id="download" style="background-color: #2c3137" class=" fade-in section text-center d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Columna para la imagen -->
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <img src="/images/descargar_app.png"  alt="Mockup" class="img-fluid rounded-border">
+            </div>
+            <!-- Columna para el texto -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <h2 class="display-4 text-white">Descarga la App</h2>
+                <p class="lead text-white">Disponible para Android y iOS. Mantente conectado y seguro.</p>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="#" class="btn btn-dark btn-lg mx-2"><i class="fa fa-android"></i> Android</a>
+                    <a href="#" class="btn btn-dark btn-lg mx-2"><i class="fa fa-apple"></i> iOS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr />
+<!-- Detalles Section -->
+<section id="basetuto" style=" background-color: #2c3137; border-top: initial;" class=" fade-in section text-center min-vh-100 d-flex align-items-center">
+    <div style="position: relative; z-index: 2; width: 100%;">
+        <!-- Contenido de la sección -->
+
+
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Columna para el texto -->
+                <div class="col-lg-6 text-start text-lg-start px-4">
+                    <h2 class="display-4" style="color: white;">Regístrate</h2>
+                    <p class="lead text-white text-start" style="font-size: 1.25rem; line-height: 1.8; color: #929292 !important;">
+                    <p><i class="fa fa-users me-2 text-primary"></i>Crea tu comunidad y conecta con personas para enviar alertas/mensajes.</p>
+                    <p><i class="fa fa-share-square me-2  text-primary"></i>Envía el código de ingreso y permite a otros unirse fácilmente a tu comunidad.</p>
+                    <p><i class="fa fa-bell me-2  text-primary"></i>Envía alertas instantáneas a tus cercanos para mantener a todos informados y seguros.</p>
+                    <a href="/login" class="text-decoration-none text-primary" target="_blank">
+                        <p>
+                            <i class="fa fa-users me-2"></i>
+                            Gestiona a los usuarios y tus comunidades en nuestra web para Administradores.
+                        </p>
+                    </a> <p><i class="fa fa-history me-2  text-primary"></i>Revisa el historial de alertas enviadas y recibe notificaciones en tiempo real para los miembros de la comunidad.</p>
+                    <p><i class="fa fa-users me-2  text-primary"></i>Crea y gestiona todas las comunidades que necesites sin limites.</p>
+
+                    </p>
+                    <!-- Botón agregado -->
+                    <a href="#!" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#pdfModal">
+                        <i class="fa fa-arrow-right"></i> Ver manual
+                    </a>
+                    </a>
+                </div>
+                <!-- Columna para la imagen -->
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <img src="~/images/bg_alerta.png" alt="Mockup" class="img-fluid rounded-border">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="fade-in section bg-light text-center p-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-4 text-start">
+                <h2 class="display-4 mb-4">Contacto</h2>
+                <p class="lead mb-4 text-dark">¿Tienes alguna duda o necesitas más información? ¡Estamos aquí para ayudarte!</p>
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fa fa-phone fa-2x me-2 text-primary"></i>
+                        <span>+56 9 5757 5753</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fa fa-envelope fa-2x me-2 text-primary"></i>
+                        <span>contacto@mialerta.cl</span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="fa fa-map-marker fa-2x me-2 text-primary"></i>
+                        <span>AÚN NO #2333, Región Metropolitana, Chile</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <form id="contactForm">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label text-start text-left" style="float: left;">Nombre</label>
+                        <input type="text" class="form-control form-control-lg" id="NombreContacto" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label text-start text-left" style="float: left;">Correo</label>
+                        <input type="email" class="form-control form-control-lg" id="CorreoContacto" placeholder="Tu correo">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="message" class="form-label text-start text-left" style="float: left;">Mensaje</label>
+                        <textarea class="form-control form-control-lg" id="MensajeContacto" rows="4" placeholder="Tu mensaje"></textarea>
+                    </div>
+                    <button type="submit" id="enviarBtn" class="btn btn-primary btn-lg">Enviar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center">
+    <div class="container">
+        <p class="mb-0">© 2024 Mi Alerta. Todos los derechos reservados.</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#" class="text-white">Política de Privacidad</a></li>
+            <li class="list-inline-item"><a href="#" class="text-white">Términos de Servicio</a></li>
+        </ul>
+    </div>
+</footer>
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pdfModalLabel">Manual de Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Contenedor para el PDF -->
+                <embed src="aaa.pdf" type="application/pdf" width="100%" height="400px" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap and JS Scripts -->
+<script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="~/lib/morrisjs/morris.min.js"></script>
+<script src="~/lib/c3-master/c3.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+        $('#contactForm').on('submit', function (e) {
+            e.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+            // var NombreContacto = $('#NombreContacto').val();
+            // var CorreoContacto = $('#CorreoContacto').val();
+            // var MensajeContacto = $('#MensajeContacto').val();
+
+            var NombreContacto = "gonzalo galdames";
+            var CorreoContacto = "gonzalogaldamesq@gmail.com";
+            var MensajeContacto = "me interesa para un grupo de vecinos que somos 100 que wea hago";
+
+            $.ajax({
+                url: '/Inicio/EnviarCorreoContacto', // URL correcta
+                type: 'POST',
+                data: {
+                    NombreContacto: NombreContacto,
+                    CorreoContacto: CorreoContacto,
+                    MensajeContacto: MensajeContacto
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload(); // Recarga la página si es necesario
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('Error en la solicitud: ' + error);
+                }
+            });
+        });
+
+
+
+
+        const sections = document.querySelectorAll('section.fade-in');
+
+        const observerOptions = {
+            root: null, // Observa el viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% del elemento debe ser visible para activar la clase
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Añade la clase 'visible' si el elemento está en la vista
+                    entry.target.classList.add('visible');
+                } else {
+                    // Opcional: quita la clase 'visible' si el elemento sale de la vista
+                    entry.target.classList.remove('visible');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>

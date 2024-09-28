@@ -1,0 +1,380 @@
+﻿@model IEnumerable<MiAlertaMVC.Models.UsuarioComunidadViewModel>
+
+@{
+    ViewData["Title"] = "Usuario Comunidad";
+    var searchQuery = ViewBag.SearchQuery as string;
+    var comunidadId = ViewBag.ComunidadId as int? ?? 0;
+    var comunidades = ViewBag.Comunidades as List<MiAlertaMVC.Models.Comunidad>;
+    var filter = ViewBag.Filter as string ?? "Todos";
+}
+
+<style type="text/css">
+    .table tbody tr:hover {
+        cursor: pointer;
+        background-color: #20aee3;
+        color: white;
+    }
+
+    /* Estilo para la fila seleccionada */
+    .table tbody tr.selected {
+        background-color: #20aee3;
+        color: white;
+    }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-Subscripción">
+                <h3 class="text-themecolor">Usuario Comunidad</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Usuario Comunidad</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">Detalles</h4>
+                                <h6 class="card-subtitle">de <code>UsuarioComunidad</code></h6>
+                            </div>
+                        </div>
+                        <div class="ms-auto">
+                            <ul class="list-inline text-center font-12">
+                                <li>
+                                    <a asp-action="Index" asp-route-filter="Todos">
+                                        <i class="fa fa-circle" style="color: gray;"></i> Todos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-action="Index" asp-route-filter="OK">
+                                        <i class="fa fa-circle" style="color: green;"></i> Validado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-action="Index" asp-route-filter="ERROR">
+                                        <i class="fa fa-circle" style="color: red;"></i> No Validado
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <div class="">
+                                <div class="">
+
+                                    <form method="get" asp-action="Index" class="d-flex flex-column flex-md-row align-items-md-center mb-3">
+                                        <div class="input-group mb-3 mb-md-0 mr-md-3" style="max-width: 400px;">
+                                            <input type="text" class="form-control" name="searchQuery" value="@searchQuery" placeholder="Buscar..." aria-label="Buscar" aria-describedby="searchButton">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit" id="searchButton">Buscar</button>
+                                            </div>
+                                        </div>
+                                        @{
+                                            // Define una variable para el valor seleccionado
+                                            var selectedComunidadId = ViewBag.ComunidadId as int? ?? 0;
+                                        }
+                                        <div class="d-flex align-items-center" style="place-content:space-between">
+                                            <select id="comunidadId" class="form-select" name="comunidadId" onchange="this.form.submit()">
+                                                <!option value="0" @(selectedComunidadId == 0 ? "selected" : "")>Todas las comunidades</!option>
+                                                @foreach (var comunidad in ViewBag.Comunidades as List<MiAlertaMVC.Models.Comunidad>)
+                                                {
+                                                    <!option value="@comunidad.IDComunidad" @(selectedComunidadId == comunidad.IDComunidad ? "selected" : "")>
+                                                        @comunidad.IDComunidad - @comunidad.Descripcion
+                                                    </!option>
+                                                }
+                                            </select>
+                                            <div class="ml-auto">
+                                                <button type="button" class="btn btn-success" id="exportButton">Exportar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="table-responsive">
+                                        <table class="table no-wrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>ID Usuario</th>
+                                                    <th>ID Comunidad</th>
+                                                    <th>Validado</th>
+
+                                                    <th>Fecha Creación</th>
+                                                    <th>Es Admin</th>
+                                                    <th>Nombre</th>
+                                                    <th>Dirección</th>
+                                                    <th>Correo</th>
+                                                    <th>Contraseña</th>
+                                                    <th>Admin</th>
+                                                    <th>Numero Telefónico</th>
+                                                    <th>Token</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var usuario in Model)
+                                                {
+                                                    <tr data-idusuario="@usuario.IDUsuario"
+                                                        data-idcomunidad="@usuario.IDComunidad"
+                                                        data-nombre="@usuario.Nombre"
+                                                        data-correo="@usuario.Correo"
+                                                        data-telefono="@usuario.NumeroTelefonico"
+                                                        class="@(usuario.Validado == 1 ? "ok-row" : "error-row")">
+                                                        <td>@usuario.IDUsuarioComunidad</td>
+                                                        <td>@usuario.IDUsuario</td>
+                                                        <td>@usuario.IDComunidad</td>
+                                                        <td>@(usuario.Validado == 1 ? "Sí" : "No")</td>
+                                                        <td>@usuario.FechaCreacion.ToString("dd-MM-yyyy HH:mm:ss")</td>
+                                                        <td>@(usuario.EsAdmin == 1 ? "Sí" : "No")</td>
+                                                        <td>@usuario.Nombre</td>
+                                                        <td>@usuario.Direccion</td>
+                                                        <td>@usuario.Correo</td>
+                                                        <td>@usuario.Contraseña</td>
+                                                        <td>@(usuario.Admin == 1 ? "Sí" : "No")</td>
+                                                        <td>@usuario.NumeroTelefonico</td>
+                                                        <td>@usuario.Token</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Detalles del Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>ID Usuario:</strong> <span id="modalUserId"></span></p>
+                <p><strong>ID Comunidad:</strong> <span id="modalComunidadId"></span></p>
+                <p><strong>Nombre:</strong> <span id="modalUserName"></span></p>
+                <p><strong>Correo:</strong> <span id="modalUserEmail"></span></p>
+                <p><strong>Teléfono:</strong> <span id="modalUserPhone"></span></p>
+                <div class="form-check" style="float: right;">
+                    <input class="form-check-input" type="checkbox" id="checkbox1">
+                    <label class="form-check-label" for="checkbox1">
+                        Habilitar funcionalidades
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelButton">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="deleteButton">Eliminar</button>
+                <button type="button" class="btn btn-warning" id="blockButton">Bloquear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var userIdToDelete = null; // Variable para almacenar el ID del usuario a eliminar
+
+            // Manejador de clic en el botón de eliminar
+            $('#cancelButton').on('click', function () {
+                $('#userModal').modal('hide'); // Cierra el modal de usuario si es necesario
+
+            });
+
+            $('#deleteButton').on('click', function () {
+                var idUsuario = $('#modalUserId').text();
+                var idComunidad = $('#modalComunidadId').text();
+
+                $.ajax({
+                    url: '/UsuarioComunidad/EliminarUsuarioComunidad',
+                    type: 'POST',
+                    data: {
+                        idUsuario: idUsuario,
+                        idComunidad: idComunidad
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#userModal').modal('hide'); // Cierra el modal de usuario
+                            // Opcional: Actualiza la tabla o realiza otras acciones
+                            location.reload(); // Recarga la página
+                        } else {
+                            alert('No se pudo eliminar al usuario.');
+                        }
+                    },
+                    error: function () {
+                        alert('Error al intentar eliminar al usuario.');
+                    }
+                });
+            });
+
+            $('#blockButton').on('click', function () {
+                var idUsuario = $('#modalUserId').text();
+                var idComunidad = $('#modalComunidadId').text();
+
+                $.ajax({
+                    url: '/UsuarioComunidad/BloquearUsuarioComunidad',
+                    type: 'POST',
+                    data: {
+                        idUsuario: idUsuario,
+                        idComunidad: idComunidad
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#userModal').modal('hide'); // Cierra el modal de usuario
+                            // Opcional: Actualiza la tabla o realiza otras acciones
+                            location.reload(); // Recarga la página
+                        } else {
+                            alert('No se pudo eliminar al usuario.');
+                        }
+                    },
+                    error: function () {
+                        alert('Error al intentar eliminar al usuario.');
+                    }
+                });
+            });
+
+            // Manejador de clic en el botón de confirmación de eliminación
+            $('#confirmDeleteButton').on('click', function () {
+                if (userIdToDelete) {
+                    // Lógica para eliminar el usuario
+                    // Aquí puedes realizar una solicitud AJAX o redirigir a otra página para completar la eliminación
+                    $('#confirmDeleteModal').modal('hide'); // Cierra el modal de confirmación
+                    $('#userModal').modal('hide'); // Cierra el modal de usuario si es necesario
+                }
+            });
+
+            // Manejador de clic en el botón de cancelación en el modal de confirmación
+            $('#confirmDeleteModal').on('hidden.bs.modal', function () {
+                userIdToDelete = null; // Limpia el ID del usuario para evitar errores en futuras eliminaciones
+            });
+        });
+
+
+        $(document).ready(function () {
+
+            $('#userModal').on('hidden.bs.modal', function () {
+            });
+
+            $('table tbody tr').on('click', function () {
+                var idUsuario = $(this).data('idusuario');
+                var idComunidad = $(this).data('idcomunidad');
+                var nombre = $(this).data('nombre');
+                var correo = $(this).data('correo');
+                var telefono = $(this).data('telefono');
+
+                // Llena el modal con los datos del usuario
+                $('#modalUserId').text(idUsuario);
+                $('#modalComunidadId').text(idComunidad);
+                $('#modalUserName').text(nombre);
+                $('#modalUserEmail').text(correo);
+                $('#modalUserPhone').text(telefono);
+                // Limpia los checkboxes y deshabilita los botones
+                $('#userModal input[type="checkbox"]').prop('checked', false);
+                $('#deleteButton').prop('disabled', true);
+                $('#blockButton').prop('disabled', true);
+                // Muestra el modal
+                $('#userModal').modal('show');
+            });
+            $('#userModal input[type="checkbox"]').on('change', function () {
+                var anyChecked = $('#userModal input[type="checkbox"]:checked').length > 0;
+                $('#deleteButton').prop('disabled', !anyChecked);
+                $('#blockButton').prop('disabled', !anyChecked);
+            });
+
+            $('#blockButton').on('click', function () {
+                // Lógica para bloquear el usuario
+                alert('Bloquear usuario con ID: ' + $('#modalUserId').text());
+                $('#userModal').modal('hide');
+            });
+
+            $('#confirmDeleteModal').off('hidden.bs.modal').on('hidden.bs.modal', function () {
+                userIdToDelete = null;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.getElementById('exportButton').addEventListener('click', function () {
+
+                console.log("OK - funcion click otorgada correctamente 1.");
+
+                const selectElement = document.getElementById('comunidadId');
+                console.log("selectElement: " + selectElement);
+
+                if (selectElement) {
+                    const selectedOptionsTexts = [];
+
+                    // Recorrer todas las opciones del select y obtener los textos
+                    for (let i = 0; i < selectElement.options.length; i++) {
+                        const optionText = selectElement.options[i].text;
+                        selectedOptionsTexts.push(optionText); // Agregar el texto al array
+                    }
+
+                    console.log(selectedOptionsTexts); // Aquí obtienes todos los textos de las opciones
+
+                    const formData = new FormData();
+
+                    // Enviar el array como una cadena JSON
+                    formData.append('planIds', JSON.stringify(selectedOptionsTexts));
+                    console.log("formData: " + formData);
+
+                    fetch('/UsuarioComunidad/ExportToExcel', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                        },
+                        body: formData
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                console.log("ERROR");
+                                throw new Error('Error en la descarga del archivo');
+                            }
+                            // Obtener el nombre del archivo desde los headers de la respuesta
+                            const contentDisposition = response.headers.get('Content-Disposition');
+                            let fileName = 'exported_data.xlsx'; // Valor predeterminado
+                            if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                                const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
+                                if (matches != null && matches[1]) {
+                                    fileName = matches[1].replace(/['"]/g, '');
+                                }
+                            }
+                            return response.blob().then(blob => ({ blob, fileName }));
+                        })
+                        .then(({ blob, fileName }) => {
+                            const url = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = fileName;
+                            document.body.appendChild(a);
+                            a.click();
+                            a.remove();
+                            window.URL.revokeObjectURL(url);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                } else {
+                    console.error("El elemento con id 'planSelect' no se encontró en el DOM.");
+                }
+            });
+        });
+    </script>
+}

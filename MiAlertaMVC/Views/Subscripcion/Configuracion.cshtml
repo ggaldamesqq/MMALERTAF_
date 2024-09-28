@@ -1,0 +1,94 @@
+﻿@model List<MiAlertaMVC.Models.ConfiguracionSubscripcionViewModel>
+@{
+    var planes = ViewBag.ListadoFlowPlanes as List<MiAlertaMVC.Models.PlanViewModel>;
+}
+<style>
+
+     
+</style>
+<div class="table-responsive">
+    <table class="table no-wrap" id="tableConfigracionPlan">
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Precio</th>
+                <th>Rango Usuarios</th>
+                <th>Usuarios Límite</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var configuracion in Model)
+            {
+                <tr>
+                    <td>@configuracion.IDSuscripcion</td>
+                    <td>@configuracion.Precio</td>
+                    <td>@configuracion.RangoUsuarios</td>
+                    <td>@configuracion.UsuariosLimite</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Nueva tabla con datos de planes -->
+<div class="col-12 mt-4">
+            <h4 class="card-title">Lista de Planes de Suscripción</h4>
+            <div class="table-responsive">
+                <table class="table no-wrap" id="tableListadePlanesdeSuscripcion">
+                    <thead>
+                        <tr>
+                            <th>ID Plan</th>
+                            <th>ID Usuario</th>
+                            <th>ID Plan</th>
+                            <th>Nombre</th>
+                            <th>Moneda</th>
+                            <th>Precio</th>
+                            <th>Intervalo</th>
+                            <th>Conteo de Intervalos</th>
+                            <th>Fecha de Creación</th>
+                            <th>Número de Periodos</th>
+                            <th>Días de Período de Prueba</th>
+                            <th>Días Hasta el Vencimiento</th>
+                            <th>URL de Callback</th>
+                            <th>Número de Reintentos de Cargos</th>
+                            <th>Opción de Conversión de Moneda</th>
+                            <th>Estado</th>
+                            <th>Publico</th>
+                            <th>Fecha de Creación en Sistema</th>
+                            <th>Fecha de Actualización en Sistema</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var plan in planes)
+                        {
+                            var rowClass = plan.Status == 1 ? "ok-row" : "error-row";
+                            var isDisabled = plan.Status != 1;  // Si el status no es 1, entonces la fila debe ser deshabilitada.
+
+                            <tr class="@rowClass" @(isDisabled ? "data-disabled=\"true\"" : "")>
+                                <td>@plan.PlanId</td>
+                                <td>@plan.UserId</td>
+                                <td>@plan.PlanId</td>
+                                <td>@plan.Name</td>
+                                <td>@plan.Currency</td>
+                                <td>@plan.Amount</td>
+                                <td>@plan.Interval</td>
+                                <td>@plan.IntervalCount</td>
+                                <td>@plan.Created.ToString("yyyy-MM-dd")</td>
+                                <td>@plan.PeriodsNumber</td>
+                                <td>@plan.TrialPeriodDays</td>
+                                <td>@plan.DaysUntilDue</td>
+                                <td>@plan.UrlCallback</td>
+                                <td>@plan.ChargesRetriesNumber</td>
+                                <td>@plan.CurrencyConvertOption</td>
+                                <td>@(plan.Status == 1 ? "Activo" : "Inactivo")</td>
+                                <td>@plan.Public</td>
+                                <td>@plan.CreatedAt.ToString("yyyy-MM-dd")</td>
+                                <td>@plan.UpdatedAt.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            </div>
+</div>
+

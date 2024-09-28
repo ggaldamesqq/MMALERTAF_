@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MiAlertaMVC.Models.UserViewModel>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Usuarios</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Usuarios</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">Detalles</h4>
+                                <h6 class="card-subtitle">de <code>Usuarios</code></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Usuario</th>
+                                            <th>Nombre</th>
+                                            <th>Dirección</th>
+                                            <th>Correo</th>
+                                            <th>Contraseña</th>
+                                            <th>Fecha Creación</th>
+                                            <th>Admin</th>
+                                            <th>Validado</th>
+                                            <th>Numero Telefónico</th>
+                                            <th>Token</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var user in Model)
+                                        {
+                                            // Definir la clase de fila según los valores de Admin y Validado
+                                            var rowClass = user.Admin == 1 ? "admin-row" : (user.Validado == 1 ? "ok-row" : "error-row");
+                                            <tr class="@rowClass">
+                                                <td class="text-end">@user.IDUsuario</td>
+                                                <td>@user.Nombre</td>
+                                                <td>@user.Direccion</td>
+                                                <td>@user.Correo</td>
+                                                <td>@user.Contrasena</td>
+                                                <td>@user.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                                                <td>@(user.Admin == 1 ? "Sí" : "No")</td>
+                                                <td>@(user.Validado == 1 ? "Sí" : "No")</td>
+                                                <td class="text-end">@user.NumeroTelefonico</td>
+                                                <td>@user.Token</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

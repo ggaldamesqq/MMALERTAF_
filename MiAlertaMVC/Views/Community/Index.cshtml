@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MiAlertaMVC.Models.CommunityViewModel>
+@{
+    ViewData["Title"] = "Communidad";
+}
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Comunidades</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Comunidades</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex no-block">
+                            <div>
+                                <h4 class="card-title">Detalles</h4>
+                                <h6 class="card-subtitle">de <code>Comunidades</code></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th>IDComunidad</th>
+                                            <th>Descripción</th>
+                                            <th>Fecha Creación</th>
+                                            <th>IDUsuario</th>
+                                            <th>Código Ingreso</th>
+                                            <th>Es Con Dominio</th>
+                                            <th>Usuarios Actuales / Límite</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var community in Model)
+                                        {
+                                            var limit = community.LimiteUsuarios ?? 0;
+                                            var totalUsers = community.TotalUsuarios;
+                                            string rowClass = "ok-row"; // Default class
+
+                                            if (limit > 0)
+                                            {
+                                                if (totalUsers > (0.7 * limit))
+                                                {
+                                                    rowClass = "error-row"; // Más del 70% del límite
+                                                }
+                                                else if (totalUsers > (0.5 * limit))
+                                                {
+                                                    rowClass = "warning-row"; // Más del 50% pero menos del 70%
+                                                }
+                                            }
+
+                                            <tr class="@rowClass">
+                                                <td class="text-end">@community.IDComunidad</td>
+                                                <td>@community.Descripcion</td>
+                                                <td>@community.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                                                <td class="text-end">@community.IDUsuario</td>
+                                                <td class="text-end">@community.CodigoIngreso</td>
+                                                <td>@(community.EsConDominio == 1 ? "Sí" : "No")</td>
+                                                <td>@community.TotalUsuarios / @(community.LimiteUsuarios.HasValue ? community.LimiteUsuarios.Value.ToString() : "Sin Límite")</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

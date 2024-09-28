@@ -1,0 +1,708 @@
+﻿@model List<MiAlertaMVC.Models.SubscripcionViewModel>
+@{
+    var suscripciones = ViewBag.ListadoFlowSubscripciones as List<MiAlertaMVC.Models.SuscripcionDetalleViewModel>;
+    var planes = ViewBag.ListadoFlowPlanes as List<MiAlertaMVC.Models.PlanViewModel>;
+}
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-Subscripción">
+                <h3 class="text-themecolor">Subscripción</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Subscripción</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="detalles-tab" data-bs-toggle="tab" href="#detalles" role="tab" aria-controls="detalles" aria-selected="true">Subscripciones BBDD</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="suscripciones-tab" data-bs-toggle="tab" href="#suscripciones" role="tab" aria-controls="suscripciones" aria-selected="false">Suscripciones FLOW</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="configuracion-tab" data-bs-toggle="tab" href="#configuracion" role="tab" aria-controls="configuracion" aria-selected="false">Configuración Planes</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="detalles" role="tabpanel" aria-labelledby="detalles-tab">
+                                <div class="d-flex no-block">
+                                    <div>
+                                        <h4 class="card-title">Detalles</h4>
+                                        <h6 class="card-subtitle">de <code>Subscripciones de base de datos.</code></h6>
+                                    </div>
+                                </div>
+                                <div class="ms-auto">
+                                    <ul class="list-inline text-center font-12">
+                                        <li>
+                                            <a asp-action="Index">
+                                                <i class="fa fa-circle" style="color: gray;"></i> Todos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Index" asp-route-filter="OK">
+                                                <i class="fa fa-circle" style="color: green;"></i> OK
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Index" asp-route-filter="ERROR">
+                                                <i class="fa fa-circle" style="color: red;"></i> ERROR/NOPAGO
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12">
+                                            <div class="table-responsive">
+                                                <table class="table no-wrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>IDSuscripcionFlow</th>
+                                                            <th>CustomerID</th>
+                                                            <th>EstadoRegistro</th>
+                                                            <th>FechaCreacion</th>
+                                                            <th>Valor ($)</th>
+                                                            <th>IDComunidad</th>
+                                                            <th>IDUsuario</th>
+                                                            <th>Correo</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var subscripcion in Model)
+                                                        {
+                                                            var rowClass = subscripcion.EstadoRegistro == 1 ? "ok-row" : "error-row";
+                                                            <tr class="@rowClass">
+                                                                <td>@subscripcion.IDCustomerFlowSuscripcion</td>
+                                                                <td>@subscripcion.IDSuscripcionFlow</td>
+                                                                <td>@subscripcion.CustomerID</td>
+                                                                <td class="text-end">@subscripcion.EstadoRegistro</td>
+                                                                <td>@subscripcion.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                                                                <td class="text-end">@subscripcion.PlanID</td>
+                                                                <td class="text-end">@subscripcion.IDComunidad</td>
+                                                                <td class="text-end">@subscripcion.IDUsuario</td>
+                                                                <td>@subscripcion.Correo</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="configuracion" role="tabpanel" aria-labelledby="configuracion-tab">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Configuración</h4>
+                                        <h6 class="card-subtitle">de <code>planes de subscripción</code></h6>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-primary" style="width:250px" id="btnEditar" disabled>Editar</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                        <div class="w-100">
+                                            @await Html.PartialAsync("Configuracion", ViewBag.ConfiguracionSubscripciones as List<MiAlertaMVC.Models.ConfiguracionSubscripcionViewModel>)
+                                        </div>
+                                    <button id="btnAbrirModalPlan" type="button" class="btn btn-primary">
+                                        Crear Nuevo Plan
+                                    </button>
+                                    <button id="btnEliminarPlan" onclick="submitEliminarPlan();"  type="button" class="btn btn-danger">
+                                        Eliminar Plan
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="suscripciones" role="tabpanel" aria-labelledby="suscripciones-tab">
+                                <div class="d-flex justify-content-between align-items-center no-block">
+                                    <div>
+                                        <h4 class="card-title">Detalles</h4>
+                                        <h6 class="card-subtitle">de <code>Subscripciones de Flow</code></h6>
+                                    </div>
+                                    <button id="exportButton" class="btn btn-primary">Exportar Plan</button>
+                                </div>
+                                <div class="col-12">
+
+                                    <div class="card">
+                                        <select id="planSelect" class="form-select">
+                                            @foreach (var plan in planes)
+                                            {
+                                                <option value="@plan.PlanId">@plan.Name</option>
+                                            }
+                                        </select>
+                                        <div id="suscripcionesContainer" class="card-body">
+                                            @await Html.PartialAsync("SubscripcionFlowDetalle", suscripciones)
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- tab-content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="createPlanModal" tabindex="-1" role="dialog" aria-labelledby="createPlanModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createPlanModalLabel">Crear nuevo plan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="createPlanForm">
+                    <div class="form-group">
+                        <label for="planName">Nombre del Plan</label>
+                        <input type="text" class="form-control" id="planName" name="planName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="planName">Limite de usuarios</label>
+                        <input type="text" class="form-control" id="inputLimiteUsuarios" name="inputLimiteUsuarios" required>
+                    </div>
+                    <div class="form-group d-none">
+                        <label for="interval">Intervalo</label>
+                        <input type="number" class="form-control" id="interval" name="interval" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="submitCreatePlanForm()">Crear Plan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Configuración de Plan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <div class="mb-3">
+                        <label for="inputIdSuscripcion" class="form-label">ID Suscripción</label>
+                        <input type="text" class="form-control" id="inputIdSuscripcion" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPrecio" class="form-label">Precio</label>
+                        <input type="text" class="form-control" id="inputPrecio">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputRangoUsuarios" class="form-label">Rango Usuarios</label>
+                        <input type="text" class="form-control" id="inputRangoUsuarios">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputUsuariosLimite" class="form-label">Usuarios Límite</label>
+                        <input type="text" class="form-control" id="inputUsuariosLimite">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" id="deleteChangesButton">Eliminar</button>
+
+                <button type="button" class="btn btn-primary" id="saveChangesButton">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+ 
+@section Scripts {
+  @*    <script src="https://ajax.aspnetcdn.com/ajax/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> *@
+    <script type="text/javascript">
+
+            
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.getElementById('tableConfigracionPlan');
+            const rows = table.querySelectorAll('tbody tr');
+            const editButton = document.getElementById('btnEditar');
+            const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+            let selectedRow = null;
+
+            rows.forEach(row => {
+                
+
+            // Manejo del click en el botón Editar
+            editButton.addEventListener('click', function () {
+                if (selectedRow) {
+                    const idSuscripcion = selectedRow.cells[0].innerText;
+                    const precio = selectedRow.cells[1].innerText;
+                    const rangoUsuarios = selectedRow.cells[2].innerText;
+                    const usuariosLimite = selectedRow.cells[3].innerText;
+
+                    document.getElementById('inputIdSuscripcion').value = idSuscripcion;
+                    document.getElementById('inputPrecio').value = precio;
+                    document.getElementById('inputRangoUsuarios').value = rangoUsuarios;
+                    document.getElementById('inputUsuariosLimite').value = usuariosLimite;
+                    // Aquí puedes hacer lo que necesites con los datos obtenidos
+                    // Por ejemplo, redirigir a una página de edición con esos valores
+                    // window.location.href = `/edit?idsuscripcion=${idSuscripcion}&precio=${precio}&rango=${rangoUsuarios}&limite=${usuariosLimite}`;
+                    editModal.show();
+                }
+            });
+
+                // Manejo del doble clic en las filas de la tabla
+                const rows = document.querySelectorAll('#tableConfigracionPlan tbody tr');
+                rows.forEach(row => {
+                    row.addEventListener('dblclick', function () {
+                        // Des-selecciona la fila previamente seleccionada
+                        if (selectedRow) {
+                            selectedRow.classList.remove('selected');
+                        }
+
+                        // Marca la fila actual como seleccionada
+                        this.classList.add('selected');
+                        selectedRow = this;
+
+                        // Obtén los valores de la fila seleccionada
+                        const idSuscripcion = this.cells[0].innerText;
+                        const precio = this.cells[1].innerText;
+                        const rangoUsuarios = this.cells[2].innerText;
+                        const usuariosLimite = this.cells[3].innerText;
+
+                        // Rellena el formulario en el modal
+                        document.getElementById('inputIdSuscripcion').value = idSuscripcion;
+                        document.getElementById('inputPrecio').value = precio;
+                        document.getElementById('inputRangoUsuarios').value = rangoUsuarios;
+                        document.getElementById('inputUsuariosLimite').value = usuariosLimite;
+
+                        // Muestra el modal
+                        editModal.show();
+                    });
+
+
+                    row.addEventListener('click', function () {
+                        if (this.classList.contains('selected')) {
+                            this.classList.remove('selected');
+                            selectedRow = null;
+                        } else {
+                            // Elimina la clase 'selected' de todas las filas
+                            rows.forEach(r => r.classList.remove('selected'));
+
+                            // Añade la clase 'selected' a la fila que fue clickeada
+                            this.classList.add('selected');
+                            selectedRow = this;
+                        }
+
+                        editButton.disabled = false;
+                    });
+
+                });
+            });
+
+            document.getElementById('saveChangesButton').addEventListener('click', function () {
+                if (selectedRow) {
+                    // Obtén los valores modificados desde los inputs
+                    const idSuscripcion = document.getElementById('inputIdSuscripcion').value;
+                    const newPrecio = document.getElementById('inputPrecio').value;
+                    const newRangoUsuarios = document.getElementById('inputRangoUsuarios').value;
+                    const newUsuariosLimite = document.getElementById('inputUsuariosLimite').value;
+
+                    // Crea un objeto FormData para enviar los datos
+                    const formData = new FormData();
+                    formData.append('idSuscripcion', idSuscripcion);
+                    formData.append('precio', newPrecio);
+                    formData.append('rangoUsuarios', newRangoUsuarios);
+                    formData.append('usuariosLimite', newUsuariosLimite);
+
+                    // Envía los datos al servidor
+                    fetch('/Subscripcion/GuardarDetallesPlan', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                        },
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log("aa then > data: " + data);
+                            if (data.success) {
+
+                                actualizarTablaConfiguraciones();
+
+
+                            } else {
+                                console.error(data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+
+                    // Cierra el modal
+                    editModal.hide();
+                }
+            });
+            // Inicialmente, el botón de editar está deshabilitado
+            editButton.disabled = true;
+
+            function actualizarTablaConfiguraciones() {
+                $.ajax({
+                    url: '/Subscripcion/GetConfiguraciones',  // Asegúrate de que esta URL coincida con tu ruta
+                    type: 'GET',
+                    success: function (data) {
+                        console.log("Datos recibidos del servidor:", data);
+
+                        var tabla = document.getElementById('tableConfigracionPlan');
+                        console.log("Tabla seleccionada:", tabla);
+
+                        var tbody = tabla.querySelector('tbody');
+                        console.log("Cuerpo de la tabla seleccionado:", tbody);
+
+                        tbody.innerHTML = '';  // Limpiar el cuerpo de la tabla
+                        console.log("Cuerpo de la tabla limpiado");
+
+                        // Recorre las configuraciones y construye las filas
+                        data.forEach(function (config) {
+                            console.log("Procesando configuración:", config);
+
+                            var row = document.createElement('tr');
+                            row.innerHTML =
+                                '<td>' + config.idSuscripcion + '</td>' +
+                                '<td>' + config.precio + '</td>' +
+                                '<td>' + config.rangoUsuarios + '</td>' +
+                                '<td>' + config.usuariosLimite + '</td>';
+
+                            tbody.appendChild(row);
+                            console.log("Fila añadida al tbody");
+
+                            // Agrega los eventos de clic y doble clic a la nueva fila
+                            row.addEventListener('dblclick', function () {
+                                // Des-selecciona la fila previamente seleccionada
+                                if (selectedRow) {
+                                    selectedRow.classList.remove('selected');
+                                }
+
+                                // Marca la fila actual como seleccionada
+                                this.classList.add('selected');
+                                selectedRow = this;
+
+                                // Obtén los valores de la fila seleccionada
+                                const idSuscripcion = this.cells[0].innerText;
+                                const precio = this.cells[1].innerText;
+                                const rangoUsuarios = this.cells[2].innerText;
+                                const usuariosLimite = this.cells[3].innerText;
+
+                                // Rellena el formulario en el modal
+                                document.getElementById('inputIdSuscripcion').value = idSuscripcion;
+                                document.getElementById('inputPrecio').value = precio;
+                                document.getElementById('inputRangoUsuarios').value = rangoUsuarios;
+                                document.getElementById('inputUsuariosLimite').value = usuariosLimite;
+
+                                // Muestra el modal
+                                editModal.show();
+                            });
+
+                            row.addEventListener('click', function () {
+                                if (this.classList.contains('selected')) {
+                                    this.classList.remove('selected');
+                                    selectedRow = null;
+                                } else {
+                                    // Elimina la clase 'selected' de todas las filas
+                                    const rows = document.querySelectorAll('#tableConfigracionPlan tbody tr');
+                                    rows.forEach(r => r.classList.remove('selected'));
+
+                                    // Añade la clase 'selected' a la fila que fue clickeada
+                                    this.classList.add('selected');
+                                    selectedRow = this;
+                                }
+
+                                editButton.disabled = false;
+                            });
+                        });
+                      
+                        console.log("Tabla actualizada con éxito");
+                    },
+                    error: function () {
+                        alert("Hubo un error al actualizar la tabla de configuraciones.");
+                    }
+                });
+            }
+
+            // Agregar manejador de eventos a los botones "Eliminar"
+            document.getElementById('deleteChangesButton').addEventListener('click', function () {
+                console.log("Entra a la función del click del delete");
+                // Suponiendo que la fila seleccionada es la que quieres eliminar
+                if (selectedRow) {
+                    var idSuscripcion = selectedRow.cells[0].innerText; // O el atributo que estés usando para identificar
+                    eliminarSuscripcion(idSuscripcion);
+                } else {
+                    alert("Por favor, selecciona una suscripción para eliminar.");
+                }
+            });
+
+
+            function eliminarSuscripcion(idSuscripcion) {
+                if (confirm("¿Estás seguro de que deseas eliminar esta suscripción?")) {
+                    $.ajax({
+                        url: '/Subscripcion/EliminarSuscripcion',  // Ajusta esta URL según tu ruta de eliminación
+                        type: 'POST',
+                        data: { id: idSuscripcion },
+                        success: function () {
+                            alert("Suscripción eliminada con éxito.");
+                            actualizarTablaConfiguraciones();  // Volver a cargar la tabla después de la eliminación
+                        },
+                        error: function () {
+                            alert("Hubo un error al eliminar la suscripción.");
+                        }
+                    });
+                }
+            }
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.getElementById('tableListadePlanesdeSuscripcion');
+            const rows = table.querySelectorAll('tbody tr');
+            const deleteButton = document.getElementById('btnEliminarPlan');
+            let selectedRow = null;
+
+            rows.forEach(row => {
+                row.addEventListener('click', function () {
+                    // Si la fila actual ya está seleccionada, des-seleccionarla
+                    if (this.dataset.disabled === "true") {
+                        return;
+                    }
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        selectedRow = null;
+                    } else {
+                        // Elimina la clase 'selected' de todas las filas
+                        rows.forEach(r => r.classList.remove('selected'));
+
+                        // Añade la clase 'selected' a la fila que fue clickeada
+                        this.classList.add('selected');
+                        selectedRow = this;
+                    }
+
+                    // Habilita o deshabilita el botón de eliminar basado en si hay una fila seleccionada
+                    deleteButton.disabled = !selectedRow;
+
+                    // Obtén el PlanId (primer columna) de la fila seleccionada
+                    const planId = selectedRow ? selectedRow.cells[0].innerText : null;
+                    console.log(`PlanId seleccionado: ${planId}`);
+                });
+            });
+
+            // Inicialmente, el botón de eliminar está deshabilitado
+            deleteButton.disabled = true;
+        });
+
+        function submitEliminarPlan() {
+            // Obtén la fila seleccionada
+            const selectedRow = document.querySelector('#tableListadePlanesdeSuscripcion tbody tr.selected');
+
+            if (!selectedRow) {
+                alert('Por favor, selecciona una fila para eliminar.');
+                return;
+            }
+
+            // Obtén el ID del plan de la fila seleccionada
+            const planId = selectedRow.cells[0].innerText;
+
+            fetch('/Subscripcion/DeleteSubscriptionPlan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: new URLSearchParams({
+                    'planId': planId
+                })
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    // Aquí puedes agregar la lógica para remover la fila de la tabla si la eliminación fue exitosa
+                    if (data.success) {
+                        selectedRow.remove(); // Elimina la fila de la tabla
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al eliminar el plan');
+                });
+        }
+
+        $(document).ready(function () {
+            const openModalButton = document.getElementById('btnAbrirModalPlan');
+            const createPlanModal = new bootstrap.Modal(document.getElementById('createPlanModal'));
+
+            // Añade el evento de clic al botón
+            openModalButton.addEventListener('click', function () {
+                createPlanModal.show(); // Abre el modal
+            });
+            const selectElement = document.getElementById('planSelect');
+            
+            selectElement.addEventListener('change', function () {
+                const selectedPlanId = this.value;
+                console.log(selectedPlanId);
+                const formData = new FormData();
+                formData.append('planId', selectedPlanId);
+
+                fetch('/Subscripcion/ObtenerDetallesPlan', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                    },
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+
+                        console.log(data);
+                        if (data.success) {
+                            actualizarTabla(data.data);
+                        } else {
+                            console.error(data.message);
+                            console.log(data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+
+            document.getElementById('exportButton').addEventListener('click', function () {
+                const selectElement = document.getElementById('planSelect');
+                if (selectElement) {
+                    const selectedOptionsTexts = [];
+
+                    // Recorrer todas las opciones del select y obtener los textos
+                    for (let i = 0; i < selectElement.options.length; i++) {
+                        const optionText = selectElement.options[i].text;
+                        selectedOptionsTexts.push(optionText); // Agregar el texto al array
+                    }
+
+                    console.log(selectedOptionsTexts); // Aquí obtienes todos los textos de las opciones
+
+                    const formData = new FormData();
+
+                    // Enviar el array como una cadena JSON
+                    formData.append('planIds', JSON.stringify(selectedOptionsTexts));
+
+                    fetch('/Subscripcion/ExportToExcel', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                        },
+                        body: formData
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error en la descarga del archivo');
+                            }
+                            // Obtener el nombre del archivo desde los headers de la respuesta
+                            const contentDisposition = response.headers.get('Content-Disposition');
+                            let fileName = 'exported_data.xlsx'; // Valor predeterminado
+                            if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                                const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
+                                if (matches != null && matches[1]) {
+                                    fileName = matches[1].replace(/['"]/g, '');
+                                }
+                            }
+                            return response.blob().then(blob => ({ blob, fileName }));
+                        })
+                        .then(({ blob, fileName }) => {
+                            const url = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = fileName;
+                            document.body.appendChild(a);
+                            a.click();
+                            a.remove();
+                            window.URL.revokeObjectURL(url);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                } else {
+                    console.error("El elemento con id 'planSelect' no se encontró en el DOM.");
+                }
+            });
+
+
+           
+            function actualizarTabla(data) {
+                const tableBody = document.querySelector('.pppp tbody');
+                console.log(tableBody); // Verifica que se selecciona el elemento correcto
+                tableBody.innerHTML = ''; // Limpiar el contenido actual de la tabla
+
+                data.forEach(suscripcion => {
+                    // Log para verificar el objeto completo
+                    console.log('Suscripcion Data:', suscripcion);
+
+                    // Verifica el valor de cada propiedad
+                    const rowClass = suscripcion.status === 1 ? "ok-row" : "error-row";
+                    const createdDate = suscripcion.created ? new Date(suscripcion.created).toISOString().slice(0, 19).replace('T', ' ') : 'N/A';
+                    const subscriptionStartDate = suscripcion.subscription_start ? new Date(suscripcion.subscription_start).toISOString().slice(0, 10) : 'N/A';
+                    const subscriptionEndDate = suscripcion.subscription_end ? new Date(suscripcion.subscription_end).toISOString().slice(0, 10) : 'N/A';
+                    const periodStartDate = suscripcion.period_start ? new Date(suscripcion.period_start).toISOString().slice(0, 10) : 'N/A';
+                    const periodEndDate = suscripcion.period_end ? new Date(suscripcion.period_end).toISOString().slice(0, 10) : 'N/A';
+
+                    const row = `
+                <tr class="${rowClass}">
+                    <td>${suscripcion.subscriptionId}</td>
+                            <td>${suscripcion.customerId }</td>
+                    <td>${suscripcion.name }</td>
+                    <td>${createdDate}</td>
+                    <td>${subscriptionStartDate}</td>
+                    <td>${subscriptionEndDate}</td>
+                    <td>${periodStartDate}</td>
+                    <td>${periodEndDate}</td>
+                    <td>${suscripcion.status }</td>
+                            <td>${suscripcion.planId }</td>
+                            <td>${suscripcion.planExternalId }</td>
+                    <td>${suscripcion.morose }</td>
+                </tr>
+                `;
+
+                    tableBody.insertAdjacentHTML('beforeend', row);
+                });
+            }
+
+            $('#comunidadSelect').change(function () {
+                var selectedValue = $(this).val();
+                console.log("Valor seleccionado: " + selectedValue); // Depura el valor seleccionado
+
+                $.ajax({
+                    url: '@Url.Action("ObtenerSuscripciones2", "Subscripcion")', // Asegúrate de que el controlador sea correcto
+                    type: 'GET',
+                    data: { comunidadId: selectedValue },
+                    success: function (result) {
+                        console.log("Resultado recibido"); // Depura si la solicitud fue exitosa
+                        $('#suscripcionesContainer').html(result);
+
+                        // Actualiza el botón de exportar
+                        var exportUrl = '@Url.Action("ExportToExcel", "Subscripcion")' + '?comunidadId=' + selectedValue;
+                        $('#exportButton').attr('href', exportUrl);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", status, error);
+                    }
+                });
+            });
+        });
+    </script>
+}

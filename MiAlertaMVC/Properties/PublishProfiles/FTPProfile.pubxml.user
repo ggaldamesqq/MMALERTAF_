@@ -1,0 +1,2088 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHNXxu+goFUuHvjpOBEoDYgAAAAACAAAAAAAQZgAAAAEAACAAAACeu23LX2+LeVfKqZcO182FZKdj8Qxm7JfBvJGJc/kweQAAAAAOgAAAAAIAACAAAAD+r24VGk8pSYh1Sa1qkEsrUShCSx8VExKF0uy3dCVsWTAAAABKeLDDGY3u8T+6nboW9MEZ6xevqkpKhh70vMCjBbwpvVepsLwGHTtd9dfpKCXqE5ZAAAAABmCrujLh0xwTOo+3AFIPxxyjmhIA6AR6+kv/Fl4qdCDIHqdNu2tgGCy5NAOTsahL2c/JAjHcZfbtsE9u5y+dCA==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://mialerta.cl/httpaccess</_PublishTargetUrl>
+    <History>True|2024-08-30T03:18:04.0576331Z||;True|2024-08-29T21:48:14.1138265-04:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/29/2024 21:04:11</publishTime>
+    </File>
+    <File Include="EPPlus.dll">
+      <publishTime>07/24/2024 10:13:24</publishTime>
+    </File>
+    <File Include="EPPlus.Interfaces.dll">
+      <publishTime>11/21/2022 09:51:04</publishTime>
+    </File>
+    <File Include="EPPlus.System.Drawing.dll">
+      <publishTime>11/21/2022 09:51:06</publishTime>
+    </File>
+    <File Include="MiAlertaMVC.deps.json">
+      <publishTime>08/29/2024 23:11:57</publishTime>
+    </File>
+    <File Include="MiAlertaMVC.dll">
+      <publishTime>08/29/2024 23:11:54</publishTime>
+    </File>
+    <File Include="MiAlertaMVC.exe">
+      <publishTime>08/29/2024 23:11:54</publishTime>
+    </File>
+    <File Include="MiAlertaMVC.pdb">
+      <publishTime>08/29/2024 23:11:54</publishTime>
+    </File>
+    <File Include="MiAlertaMVC.runtimeconfig.json">
+      <publishTime>08/29/2024 21:43:03</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.Abstractions.dll">
+      <publishTime>10/31/2023 12:02:56</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.dll">
+      <publishTime>10/31/2023 12:09:22</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <publishTime>10/31/2023 12:09:40</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.Json.dll">
+      <publishTime>10/31/2023 12:10:02</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <publishTime>10/31/2023 12:04:02</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.FileProviders.Physical.dll">
+      <publishTime>10/31/2023 12:07:50</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.FileSystemGlobbing.dll">
+      <publishTime>10/31/2023 12:00:50</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Primitives.dll">
+      <publishTime>10/31/2023 12:00:16</publishTime>
+    </File>
+    <File Include="Microsoft.IO.RecyclableMemoryStream.dll">
+      <publishTime>12/11/2023 18:53:28</publishTime>
+    </File>
+    <File Include="Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/22/2021 20:40:24</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 04:09:54</publishTime>
+    </File>
+    <File Include="runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll">
+      <publishTime>10/31/2023 12:01:16</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:51:42</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>10/26/2023 20:34:06</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/sni.dll">
+      <publishTime>07/12/2017 07:24:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/sni.dll">
+      <publishTime>07/12/2017 07:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/sni.dll">
+      <publishTime>07/12/2017 07:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/22/2021 20:40:18</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:48:10</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll">
+      <publishTime>10/31/2023 12:10:48</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Text.Encoding.CodePages.dll">
+      <publishTime>10/31/2023 12:08:48</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>10/26/2023 20:34:10</publishTime>
+    </File>
+    <File Include="System.Data.SqlClient.dll">
+      <publishTime>10/26/2023 20:27:26</publishTime>
+    </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:49:12</publishTime>
+    </File>
+    <File Include="System.Formats.Asn1.dll">
+      <publishTime>10/31/2023 12:03:30</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.Pkcs.dll">
+      <publishTime>10/31/2023 12:06:36</publishTime>
+    </File>
+    <File Include="System.Text.Encoding.CodePages.dll">
+      <publishTime>10/31/2023 12:08:50</publishTime>
+    </File>
+    <File Include="System.Text.Encodings.Web.dll">
+      <publishTime>10/31/2023 12:00:54</publishTime>
+    </File>
+    <File Include="System.Text.Json.dll">
+      <publishTime>10/31/2023 12:05:48</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/29/2024 23:12:08</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.css">
+      <publishTime>08/03/2024 19:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.css.map">
+      <publishTime>08/03/2024 19:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.min.css">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.min.css.map">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.rtl.css">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.rtl.css.map">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.rtl.min.css">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.css">
+      <publishTime>08/03/2024 19:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.css.map">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.min.css">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.min.css.map">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.rtl.css">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>08/03/2024 19:16:54</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.css">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.css.map">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.min.css">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.min.css.map">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.rtl.css">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>08/03/2024 19:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.css">
+      <publishTime>08/22/2024 20:52:02</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.css.map">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.min.css">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.min.css.map">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.rtl.css">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.rtl.css.map">
+      <publishTime>08/03/2024 19:16:56</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.rtl.min.css">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/css/bootstrap.rtl.min.css.map">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.bundle.js">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.bundle.js.map">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.bundle.min.js">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.bundle.min.js.map">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.esm.js">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.esm.js.map">
+      <publishTime>08/03/2024 19:16:57</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.esm.min.js">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.esm.min.js.map">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.js">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.js.map">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.min.js">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/bootstrap/js/bootstrap.min.js.map">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/css/animate.css">
+      <publishTime>08/03/2024 19:17:30</publishTime>
+    </File>
+    <File Include="wwwroot/css/colors/default.css">
+      <publishTime>08/03/2024 19:17:31</publishTime>
+    </File>
+    <File Include="wwwroot/css/login.css">
+      <publishTime>08/20/2024 19:08:38</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/bootstrap-switch.css">
+      <publishTime>08/03/2024 19:17:31</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/breadcrumb-page.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/card-page.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/chat-app-page.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/common.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/contact-app-page.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/dashboard1.css">
+      <publishTime>08/03/2024 19:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/easy-pie-chart.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/error-pages.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/file-upload.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/float-chart.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/floating-label.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/footable-page.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/form-icheck.css">
+      <publishTime>08/03/2024 19:17:33</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/form-pages.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/google-vector-map.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/icon-page.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/inbox.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/login-register-lock.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/other-pages.css">
+      <publishTime>08/03/2024 19:17:34</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/pages.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/pagination.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/perfect-scrollbar.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/pricing-page.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/progressbar-page.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/ribbon-page.css">
+      <publishTime>08/03/2024 19:17:35</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/stylish-tooltip.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/tab-page.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/table-pages.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/timeline-vertical-horizontal.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/ui-bootstrap-page.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/user-card.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/pages/widget-page.css">
+      <publishTime>08/03/2024 19:17:36</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>08/12/2024 21:34:15</publishTime>
+    </File>
+    <File Include="wwwroot/css/spinners.css">
+      <publishTime>08/03/2024 19:17:31</publishTime>
+    </File>
+    <File Include="wwwroot/css/style.css">
+      <publishTime>08/26/2024 23:04:24</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/images/adiccion-digital.jpg">
+      <publishTime>08/25/2024 21:53:45</publishTime>
+    </File>
+    <File Include="wwwroot/images/alarma.jpg">
+      <publishTime>08/28/2024 19:20:23</publishTime>
+    </File>
+    <File Include="wwwroot/images/alerta.jpg">
+      <publishTime>08/27/2024 20:04:17</publishTime>
+    </File>
+    <File Include="wwwroot/images/big/img1.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/big/Thumbs.db">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/chat.jpg">
+      <publishTime>08/27/2024 19:54:32</publishTime>
+    </File>
+    <File Include="wwwroot/images/custom-select.png">
+      <publishTime>08/03/2024 19:16:50</publishTime>
+    </File>
+    <File Include="wwwroot/images/desktop.ini">
+      <publishTime>08/27/2024 21:36:39</publishTime>
+    </File>
+    <File Include="wwwroot/images/favicon.png">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/gratis.jpeg">
+      <publishTime>08/27/2024 21:36:02</publishTime>
+    </File>
+    <File Include="wwwroot/images/grupos.png">
+      <publishTime>08/27/2024 20:27:40</publishTime>
+    </File>
+    <File Include="wwwroot/images/historial.png">
+      <publishTime>08/27/2024 20:39:58</publishTime>
+    </File>
+    <File Include="wwwroot/images/history.svg">
+      <publishTime>08/28/2024 19:51:41</publishTime>
+    </File>
+    <File Include="wwwroot/images/imageninicio.webp">
+      <publishTime>08/26/2024 20:21:24</publishTime>
+    </File>
+    <File Include="wwwroot/images/INICIOIMAGEN.webp">
+      <publishTime>08/26/2024 20:58:59</publishTime>
+    </File>
+    <File Include="wwwroot/images/logo-icon.png">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/logo-light-icon.png">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/logo-light-text.png">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/logo-text.png">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/mapa.webp">
+      <publishTime>08/26/2024 23:59:29</publishTime>
+    </File>
+    <File Include="wwwroot/images/principal.png">
+      <publishTime>08/27/2024 20:06:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/telefonoprueba.png">
+      <publishTime>08/26/2024 21:23:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/1.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/2.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/3.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/4.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/5.jpg">
+      <publishTime>08/03/2024 19:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/6.jpg">
+      <publishTime>08/03/2024 19:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/7.jpg">
+      <publishTime>08/03/2024 19:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/images/users/8.jpg">
+      <publishTime>08/03/2024 19:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/js/custom.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/custom.min.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/dashboard1.js">
+      <publishTime>08/04/2024 01:57:31</publishTime>
+    </File>
+    <File Include="wwwroot/js/flot-data.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.slimscroll.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/perfect-scrollbar.jquery.min.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/sidebarmenu.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/js/waves.js">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>08/20/2024 19:11:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/.bmp.yml">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/.editorconfig">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/.gitignore">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/.jshintrc">
+      <publishTime>08/03/2024 19:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/.travis.yml">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/bower.json">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/c3.css">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/c3.js">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/c3.min.css">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/c3.min.js">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/codecov.yml">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/component.json">
+      <publishTime>08/03/2024 19:16:59</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/CONTRIBUTING.md">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/chart-bubble/bubble.js">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/chart-bubble/c3.css">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/chart-bubble/c3.min.js">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/chart-bubble/index.html">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/exporter/config.json">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/exporter/phantom-exporter.js">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/exporter/test.png">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/extensions/js/c3ext.js">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/css/bootstrap.min.css">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/css/c3.css">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/css/index.css">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/css/style.css">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test.csv">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test.json">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test.tsv">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test2.csv">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test2_ts.csv">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test3.csv">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test_2.json">
+      <publishTime>08/03/2024 19:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test_3.json">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/data/c3_test_ts.csv">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/index.html">
+      <publishTime>08/03/2024 19:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/c3.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/c3.min.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/extensions">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/require.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/samples/plugin.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/samples/requirejs.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/js/samples/zoom_reduction.js">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_axis_label.html">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_axis_range.html">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_category.html">
+      <publishTime>08/03/2024 19:17:03</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_data_colors.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_flow.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_flow_timeseries.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_legend.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_tooltip_show.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_transform.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_xgrid_lines.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/api_ygrid_lines.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/area_zerobased.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_padding.html">
+      <publishTime>08/03/2024 19:17:04</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_range.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_extent.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_localtime.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_range_timeseries.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_tick_culling.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_tick_fit.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_tick_rotate.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_x_tick_values.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_y2.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/axes_y_default.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/bar_zerobased.html">
+      <publishTime>08/03/2024 19:17:05</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/bindto.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/categorized.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area_spline.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area_spline_stacked.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area_stacked.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area_step.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_area_step_stacked.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_bar.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_bar_space.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_bar_stacked.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_combination.html">
+      <publishTime>08/03/2024 19:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_donut.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_gauge.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_pie.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_pie_sort.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_scatter.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_spline.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_step.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/chart_step_category.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/custom_xs_scale.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/custom_x_categorized.html">
+      <publishTime>08/03/2024 19:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/custom_x_scale.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_columned.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_hide.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_json.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_label.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_label_format.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_load.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_load_timeseries.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_region.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_region_timeseries.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_rowed.html">
+      <publishTime>08/03/2024 19:17:08</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/data_url.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/different_category_datasets.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/domain_y.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/element.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/emptydata.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/grids.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/grids_timeseries.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/grid_focus.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/grid_x_lines.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/grid_x_lines_timeseries.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/interaction_enabled.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/legend.html">
+      <publishTime>08/03/2024 19:17:09</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/padding.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/padding_update.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/plugin.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/point_r.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/point_show.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/regions.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/regions_timeseries.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/requirejs.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/selection.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/simple.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/subchart.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/subchart_onbrush.html">
+      <publishTime>08/03/2024 19:17:10</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/timeseries.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/timeseries_date.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/timeseries_descendent.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/timeseries_raw.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/tooltip_grouped.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/tooltip_show.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/zoom.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/zoom_category.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/zoom_onzoom.html">
+      <publishTime>08/03/2024 19:17:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/htdocs/samples/zoom_reduction.html">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/karma.conf.js">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/LICENSE">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/package-lock.json">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/package.json">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/README.md">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/rollup.config.js">
+      <publishTime>08/03/2024 19:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.axis-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.data-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.focus-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.grid-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.load-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.region-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/api.zoom-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/arc-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/axis-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/c3-helper.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/c3-spec.js">
+      <publishTime>08/03/2024 19:17:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/class-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/core-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/data-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/data.convert.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/domain-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/grid-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/interaction-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/legend-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/shape.bar-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/shape.line-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/svg-helper.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/title-spec.js">
+      <publishTime>08/03/2024 19:17:13</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/tooltip-spec.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/type-spec.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/spec/zoom-spec.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.axis.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.category.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.chart.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.color.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.data.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.flow.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.focus.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.grid.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.group.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.legend.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.load.js">
+      <publishTime>08/03/2024 19:17:14</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.region.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.selection.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.show.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.tooltip.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.transform.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.x.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/api.zoom.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/arc.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/axis.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/cache.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/category.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/class-utils.js">
+      <publishTime>08/03/2024 19:17:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/class.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/clip.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/color.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/config.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/core.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/data.convert.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/data.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/data.load.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/domain.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/drag.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/format.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/grid.js">
+      <publishTime>08/03/2024 19:17:16</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/index.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/interaction.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/legend.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/polyfill.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/region.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scale.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/arc.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/area.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/axis.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/bar.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/brush.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/chart.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/focus.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/grid.scss">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/legend.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/line.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/main.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/point.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/region.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/select_drag.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/text.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/title.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/scss/tooltip.scss">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/selection.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/shape.bar.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/shape.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/shape.line.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/size.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/subchart.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/text.js">
+      <publishTime>08/03/2024 19:17:17</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/title.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/tooltip.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/type.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/ua.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/util.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/c3-master/src/zoom.js">
+      <publishTime>08/03/2024 19:17:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/API.md">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/CHANGES.md">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/d3.js">
+      <publishTime>08/03/2024 19:17:19</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/d3.min-v4.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/d3.min.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/LICENSE">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/d3/README.md">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/gmaps.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/gmaps.min.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/gmaps.min.js.map">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/jquery.gmaps.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.controls.js">
+      <publishTime>08/03/2024 19:17:20</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.core.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.events.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.geofences.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.geometry.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.layers.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.map_types.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.markers.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.native_extensions.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.overlays.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.routes.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.static.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.streetview.js">
+      <publishTime>08/03/2024 19:17:21</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.styles.js">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/gmaps/lib/gmaps.utils.js">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>08/03/2024 18:57:18</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/.bower.json">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/.gitignore">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/.travis.yml">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/bower.json">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/bower.travis.json">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/area-as-line.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/area.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/bar-colors.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/bar-no-axes.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/bar.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/days.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/decimal-custom-hover.html">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/diagonal-xlabels-bar.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/diagonal-xlabels.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/donut-colors.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/donut-formatter.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/donut.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/dst.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/events.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/goals.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/lib/example.css">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/lib/example.js">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/months-no-smooth.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/negative.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/no-grid.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/non-continuous.html">
+      <publishTime>08/03/2024 19:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/non-date.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/quarters.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/resize.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/stacked_bars.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/timestamps.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/updating.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/weeks.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/years.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/examples/_template.html">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/Gruntfile.js">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/less/morris.core.less">
+      <publishTime>08/03/2024 19:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.area.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.bar.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.donut.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.grid.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.hover.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/lib/morris.line.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/morris.css">
+      <publishTime>08/03/2024 19:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/morris.js">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/morris.min.js">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/package.json">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/README.md">
+      <publishTime>08/03/2024 19:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/area/area_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/bar/bar_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/bar/colours.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/commas_spec.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/donut/donut_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/grid/auto_grid_lines_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/grid/set_data_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/grid/y_label_format_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/hover_spec.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/label_series_spec.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/line/line_spec.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/pad_spec.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/lib/parse_time_spec.coffee">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/specs.html">
+      <publishTime>08/03/2024 19:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/support/placeholder.coffee">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/examples.js">
+      <publishTime>08/03/2024 19:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/exemplary/area0.png">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/exemplary/bar0.png">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/exemplary/line0.png">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/exemplary/stacked_bar0.png">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/run.sh">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/test.html">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/morrisjs/spec/viz/visual_specs.js">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/peity/jquery.peity.init.js">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/peity/jquery.peity.min.js">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/css/perfect-scrollbar.min.css">
+      <publishTime>08/03/2024 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/js/perfect-scrollbar.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/perfect-scrollbar/js/perfect-scrollbar.min.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/.bower.json">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/bower.json">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/dev/amdDev.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/dev/index.js">
+      <publishTime>08/03/2024 19:17:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/dev/require.js">
+      <publishTime>08/03/2024 19:17:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/license.txt">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/raphael-min.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/raphael/raphael.js">
+      <publishTime>08/03/2024 19:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/MiAlertaMVC.styles.css">
+      <publishTime>08/29/2024 21:43:01</publishTime>
+    </File>
+    <File Include="wwwroot/scss/app.scss">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/scss/colors/default.scss">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/grid.scss">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/css/font-awesome.css">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/css/font-awesome.min.css">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/animated.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/bordered-pulled.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/core.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/fixed-width.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/font-awesome.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/icons.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/larger.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/list.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/mixins.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/path.less">
+      <publishTime>08/03/2024 19:17:39</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/rotated-flipped.less">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/screen-reader.less">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/stacked.less">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/less/variables.less">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/.bower.json">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/.gitignore">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/.npmignore">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/bower.json">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/css/font-awesome.css">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/css/font-awesome.min.css">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont-old.ttf">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont.eot">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont.svg">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont.ttf">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/fontawesome-webfont.woff2">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/fonts/FontAwesome.otf">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/HELP-US-OUT.txt">
+      <publishTime>08/03/2024 19:17:40</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/animated.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/bordered-pulled.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/core.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/extras.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/fixed-width.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/font-awesome.less">
+      <publishTime>08/03/2024 19:17:41</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/icons.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/larger.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/list.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/mixins.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/path.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/rotated-flipped.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/spinning.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/stacked.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/less/variables.less">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/font-awesome.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_animated.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_bordered-pulled.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_core.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_extras.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_fixed-width.scss">
+      <publishTime>08/03/2024 19:17:42</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_icons.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_larger.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_list.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_mixins.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_path.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_rotated-flipped.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_spinning.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_stacked.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/old/scss/_variables.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/font-awesome.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_animated.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_core.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_fixed-width.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_icons.scss">
+      <publishTime>08/03/2024 19:17:43</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_larger.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_list.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_mixins.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_path.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_screen-reader.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_stacked.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/icons/font-awesome/scss/_variables.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/bootstrap-switch.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/breadcrumb-page.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/button-page.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/card-page.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/chat-app-page.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/common.scss">
+      <publishTime>08/03/2024 19:17:44</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/contact-app-page.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/dashboard1.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/easy-pie-chart.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/error-pages.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/file-upload.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/float-chart.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/floating-label.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/footable-page.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/form-icheck.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/form-pages.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/google-vector-map.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/icon-page.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/other-pages.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/pages.scss">
+      <publishTime>08/03/2024 19:17:45</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/pagination.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/perfect-scrollbar.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/pricing-page.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/stylish-tooltip.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/pages/table-pages.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/responsive.scss">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/scss/sidebar.scss">
+      <publishTime>08/03/2024 19:17:37</publishTime>
+    </File>
+    <File Include="wwwroot/scss/style.scss">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/variable.scss">
+      <publishTime>08/03/2024 19:17:38</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/blog.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/comment.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/common-widget.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/feed.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/msg-box.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/profile.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/topbar-mail.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+    <File Include="wwwroot/scss/widgets/widgets.scss">
+      <publishTime>08/03/2024 19:17:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

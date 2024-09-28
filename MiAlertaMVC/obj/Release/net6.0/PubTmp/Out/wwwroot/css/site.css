@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: static;
+        height: auto;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+td {
+font-size:10px;
+
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
