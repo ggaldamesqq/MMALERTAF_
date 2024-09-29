@@ -9,6 +9,26 @@
 }
 
 <style type="text/css">
+    .logo-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0; /* Fondo por defecto */
+    }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .logo-container i {
+            font-size: 24px; /* Ajusta el tamaño del ícono */
+            color: #888; /* Color del ícono */
+        }
     // .table tbody tr:hover {
     //     cursor: pointer;
     //     background-color: #20aee3;
@@ -102,18 +122,17 @@
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>ID Usuario</th>
-                                                    <th>ID Comunidad</th>
-                                                    <th>Validado</th>
-
-                                                    <th>Fecha Creación</th>
-                                                    <th>Es Admin</th>
                                                     <th>Nombre</th>
                                                     <th>Dirección</th>
+                                                    <th>Numero Telefónico</th>
+                                                    <th>ID Comunidad</th>
+                                                    <th>Validado</th>
+                                                    <th>Fecha Creación</th>
+                                                    <th>Es Admin</th>
                                                     <th>Correo</th>
+                                                    <th>ID Usuario</th>
                                                     <th>Contraseña</th>
                                                     <th>Admin</th>
-                                                    <th>Numero Telefónico</th>
                                                     <th>Token</th>
 
                                                 </tr>
@@ -127,18 +146,30 @@
                                                         data-correo="@usuario.Correo"
                                                         data-telefono="@usuario.NumeroTelefonico"
                                                         class="@(usuario.Validado == 1 ? "table-success" : "table-warning")">
-                                                        <td>@usuario.IDUsuarioComunidad</td>
-                                                        <td>@usuario.IDUsuario</td>
+                                                        <td>
+                                                            <div class="logo-container">
+                                                                @if (!string.IsNullOrEmpty(usuario.LogoComunidad))
+                                                                {
+                                                                    <img src="@usuario.LogoComunidad" alt="Logo Comunidad">
+                                                                }
+                                                                else
+                                                                {
+                                                                    <i class="fas fa-users"></i> <!-- Ícono de grupo de personas -->
+                                                                }
+                                                            </div>
+                                                        </td>
+                                                    
+                                                        <td>@usuario.Nombre</td>
+                                                        <td>@usuario.Direccion</td>
+                                                        <td>@usuario.NumeroTelefonico</td>
                                                         <td>@usuario.IDComunidad</td>
                                                         <td>@(usuario.Validado == 1 ? "Sí" : "No")</td>
                                                         <td>@usuario.FechaCreacion.ToString("dd-MM-yyyy HH:mm:ss")</td>
                                                         <td>@(usuario.EsAdmin == 1 ? "Sí" : "No")</td>
-                                                        <td>@usuario.Nombre</td>
-                                                        <td>@usuario.Direccion</td>
                                                         <td>@usuario.Correo</td>
+                                                        <td>@usuario.IDUsuario</td>
                                                         <td>@usuario.Contraseña</td>
                                                         <td>@(usuario.Admin == 1 ? "Sí" : "No")</td>
-                                                        <td>@usuario.NumeroTelefonico</td>
                                                         <td>@usuario.Token</td>
                                                     </tr>
                                                 }

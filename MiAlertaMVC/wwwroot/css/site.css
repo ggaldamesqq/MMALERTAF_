@@ -68,7 +68,7 @@ body {
 .table tbody tr:hover {
     cursor: pointer;
     background-color: #17a2b8 !important;
-    color: #4A4A4A;
+    color: #6A6A6A;
     font-size: 15px !important;
 }
 
@@ -135,10 +135,9 @@ body {
     border-top: 1px solid #e9ecef;
 }
 
-/* Iconos en los títulos de las filas */
-.table tbody tr td:first-child i {
+/*.table tbody tr td:first-child i {
     margin-right: 0.5rem;
-}
+}*/
 
 /* Indicadores de colores */
 .table-danger {

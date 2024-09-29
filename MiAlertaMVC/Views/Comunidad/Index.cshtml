@@ -5,6 +5,26 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style type="text/css">
+    .logo-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0; /* Fondo por defecto */
+    }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .logo-container i {
+            font-size: 24px; /* Ajusta el tamaño del ícono */
+            color: #888; /* Color del ícono */
+        }
   /*   .table tbody tr:hover {
         cursor: pointer;
         background-color: #20aee3;
@@ -45,6 +65,8 @@
                                 <table class="table no-wrap table-striped">
                                     <thead class="thead-dark">
                                         <tr>
+                                            <th></th>
+
                                             <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Fecha Creación</th>
@@ -74,6 +96,18 @@
                                             }
 
                                             <tr class="@rowClass">
+                                                <td>
+                                                    <div class="logo-container">
+                                                        @if (!string.IsNullOrEmpty(community.LogoComunidad))
+                                                        {
+                                                            <img src="@community.LogoComunidad" alt="Logo Comunidad">
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fas fa-users"></i> <!-- Ícono de grupo de personas -->
+                                                        }
+                                                    </div>
+                                                </td>
                                                 <td class="text-end">@community.IDComunidad</td>
                                                 <td>@community.Descripcion</td>
                                                 <td>@community.FechaCreacion.ToString("yyyy-MM-dd")</td>
@@ -205,13 +239,13 @@
         // Manejo de clic en las filas de la tabla
         $('.table tbody tr').on('click', function () {
             // Obtener los datos de la fila
-            var idComunidad = $(this).find('td').eq(0).text().trim();
-            var descripcion = $(this).find('td').eq(1).text().trim();
-            var fechaCreacion = $(this).find('td').eq(2).text().trim();
-            var idUsuario = $(this).find('td').eq(3).text().trim();
-            var codigoIngreso = $(this).find('td').eq(4).text().trim();
-            var esConDominio = $(this).find('td').eq(5).text().trim();
-            var totalUsuarios = $(this).find('td').eq(6).text().trim();
+            var idComunidad = $(this).find('td').eq(1).text().trim();
+            var descripcion = $(this).find('td').eq(2).text().trim();
+            var fechaCreacion = $(this).find('td').eq(3).text().trim();
+            var idUsuario = $(this).find('td').eq(4).text().trim();
+            var codigoIngreso = $(this).find('td').eq(5).text().trim();
+            var esConDominio = $(this).find('td').eq(6).text().trim();
+            var totalUsuarios = $(this).find('td').eq(7).text().trim();
 
             // Asignar los datos a los inputs del modal
             $('#modalIDComunidad').val(idComunidad);

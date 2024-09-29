@@ -9,87 +9,87 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MiAlertaMVC
 build_property.RootNamespace = MiAlertaMVC
-build_property.ProjectDir = C:\Users\Gonzalo Galdames\Documents\GitHub\MMALERTAF_\MiAlertaMVC\
+build_property.ProjectDir = C:\Users\shalo\Documents\ProyectosPROSYS\MMALERTAF_\MiAlertaMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Gonzalo Galdames\Documents\GitHub\MMALERTAF_\MiAlertaMVC
+build_property.MSBuildProjectDirectory = C:\Users\shalo\Documents\ProyectosPROSYS\MMALERTAF_\MiAlertaMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/AlertasComunidad/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/AlertasComunidad/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRhc0NvbXVuaWRhZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Community/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Community/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Comunidad/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Comunidad/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tdW5pZGFkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Home/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Home/Privacy.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Inicio/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Inicio/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Login/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Log/Log.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Log/Log.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nXExvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Perfil/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Perfil/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Shared/Error.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/Configuracion.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/Configuracion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXBjaW9uXENvbmZpZ3VyYWNpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXBjaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/SubscripcionFlowDetalle.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Subscripcion/SubscripcionFlowDetalle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXBjaW9uXFN1YnNjcmlwY2lvbkZsb3dEZXRhbGxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/User/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/UsuarioComunidad/Index.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/UsuarioComunidad/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NvbXVuaWRhZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/_ViewImports.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/_ViewStart.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gonzalo Galdames/Documents/GitHub/MMALERTAF_/MiAlertaMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/shalo/Documents/ProyectosPROSYS/MMALERTAF_/MiAlertaMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8a9ubgo9p5

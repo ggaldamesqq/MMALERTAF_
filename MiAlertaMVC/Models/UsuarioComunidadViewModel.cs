@@ -15,5 +15,6 @@
         public int Admin { get; set; }
         public int Validado { get; set; }
         public string NumeroTelefonico { get; set; }
+        public string LogoComunidad { get; set; }
     }
 }

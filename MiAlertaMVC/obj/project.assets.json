@@ -1803,23 +1803,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gonzalo Galdames\\.nuget\\packages\\": {},
+    "C:\\Users\\shalo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gonzalo Galdames\\Documents\\GitHub\\MMALERTAF_\\MiAlertaMVC\\MiAlertaMVC.csproj",
+      "projectUniqueName": "C:\\Users\\shalo\\Documents\\ProyectosPROSYS\\MMALERTAF_\\MiAlertaMVC\\MiAlertaMVC.csproj",
       "projectName": "MiAlertaMVC",
-      "projectPath": "C:\\Users\\Gonzalo Galdames\\Documents\\GitHub\\MMALERTAF_\\MiAlertaMVC\\MiAlertaMVC.csproj",
-      "packagesPath": "C:\\Users\\Gonzalo Galdames\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gonzalo Galdames\\Documents\\GitHub\\MMALERTAF_\\MiAlertaMVC\\obj\\",
+      "projectPath": "C:\\Users\\shalo\\Documents\\ProyectosPROSYS\\MMALERTAF_\\MiAlertaMVC\\MiAlertaMVC.csproj",
+      "packagesPath": "C:\\Users\\shalo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shalo\\Documents\\ProyectosPROSYS\\MMALERTAF_\\MiAlertaMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gonzalo Galdames\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shalo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1888,7 +1888,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

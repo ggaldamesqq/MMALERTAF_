@@ -376,13 +376,17 @@ public class UsuarioComunidadController : Controller
                 U.Contraseña, 
                 U.Admin, 
                 U.Validado, 
-                U.NumeroTelefonico
+                U.NumeroTelefonico,
+	            cl.UrlLogo
+
             FROM 
                 UsuarioComunidad UC
             INNER JOIN 
                 Usuario U ON U.IDUsuario = UC.IDUsuario
             INNER JOIN 
 		        Comunidad C ON C.IDComunidad = UC.IDComunidad
+            LEFT JOIN 
+                ComunidadLogo as CL ON cl.IDComunidad = c.IDComunidad
             WHERE 
                 (@IDComunidad = 0 OR UC.IDComunidad = @IDComunidad)
                 AND C.IDUsuario = @IDUsuario";
@@ -432,7 +436,8 @@ public class UsuarioComunidadController : Controller
                             Contraseña = reader["Contraseña"].ToString(),
                             Admin = (int)reader["Admin"],
                             Validado = (int)reader["Validado"],
-                            NumeroTelefonico = reader["NumeroTelefonico"].ToString()
+                            NumeroTelefonico = reader["NumeroTelefonico"].ToString(),
+                            LogoComunidad = reader["UrlLogo"].ToString()
                         });
                     }
                 }

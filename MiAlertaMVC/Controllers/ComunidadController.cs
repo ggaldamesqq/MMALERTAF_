@@ -38,13 +38,16 @@ namespace MiAlertaMVC.Controllers
                 c.CodigoIngreso,
                 c.EsConDominio,
                 COUNT(uc.IDUsuario) AS TotalUsuarios,
-                cl.LimiteUsuarios
+                cl.LimiteUsuarios,
+	            COL.UrlLogo
             FROM 
                 Comunidad c
             INNER JOIN 
                 UsuarioComunidad uc ON uc.IDComunidad = c.IDComunidad
             LEFT JOIN 
                 ComunidadLimiteClientes cl ON cl.IDComunidad = c.IDComunidad
+            LEFT JOIN 
+                ComunidadLogo COL ON COL.IDComunidad = c.IDComunidad
             WHERE 
                 c.IDUsuario = @IDUSUARIO
             GROUP BY 
@@ -54,7 +57,8 @@ namespace MiAlertaMVC.Controllers
                 c.IDUsuario, 
                 c.CodigoIngreso, 
                 c.EsConDominio, 
-                cl.LimiteUsuarios
+                cl.LimiteUsuarios,
+	            col.UrlLogo
             ORDER BY 
                 c.IDComunidad DESC";
 
@@ -75,7 +79,8 @@ namespace MiAlertaMVC.Controllers
                             CodigoIngreso = reader.GetString(4),
                             EsConDominio = reader.GetInt32(5),
                             TotalUsuarios = reader.GetInt32(6),
-                            LimiteUsuarios = reader.IsDBNull(7) ? (int?)null : reader.GetInt32(7) // Obtener el límite de usuarios
+                            LimiteUsuarios = reader.IsDBNull(7) ? (int?)null : reader.GetInt32(7),
+                            LogoComunidad = reader.IsDBNull(8) ? "" : reader.GetString(8)
                         });
                     }
                 }
