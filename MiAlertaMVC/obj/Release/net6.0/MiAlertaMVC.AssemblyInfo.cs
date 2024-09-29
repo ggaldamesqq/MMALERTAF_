@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiAlertaMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e06ad8e7be9cda6058863e4d279a8b73fc57bedd")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiAlertaMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiAlertaMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

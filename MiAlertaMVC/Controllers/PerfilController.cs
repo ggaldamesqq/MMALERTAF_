@@ -69,15 +69,16 @@ namespace MiAlertaMVC.Controllers
         [HttpPost]
         public IActionResult ActualizarPerfil(UsuarioViewModel model)
         {
-
             // Validar que el número telefónico tenga 9 caracteres y comience con '9'
             if (model.NumeroTelefonico.Length != 9 || model.NumeroTelefonico[0] != '9')
             {
-                ModelState.AddModelError("NumeroTelefonico", "El número telefónico debe tener 9 dígitos y comenzar con el número 9.");
+                return Json(new { success = false, message = "El número telefónico debe tener 9 dígitos y comenzar con el número 9." });
             }
 
-                var idUsuario = HttpContext.Session.GetString("idusuario");
+            var idUsuario = HttpContext.Session.GetString("idusuario");
 
+            try
+            {
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     var query = @"
@@ -99,7 +100,12 @@ namespace MiAlertaMVC.Controllers
                     cmd.ExecuteNonQuery();
                 }
 
-                return RedirectToAction("Index");
+                return Json(new { success = true, message = "Perfil actualizado exitosamente." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Ocurrió un error al actualizar el perfil: " + ex.Message });
+            }
         }
 
     }

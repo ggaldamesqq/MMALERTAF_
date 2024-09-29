@@ -1,7 +1,16 @@
 html {
   font-size: 14px;
 }
-
+#processingModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Asegúrate de que el modal esté encima de otros elementos */
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -22,9 +31,19 @@ html {
     }
 }
 
+.modal-title {
+    color: white !important;
+}
+.modal-header {
+    background-color: #007bff;
+    color: white !important;
+}
+th {
+    text-wrap : nowrap;
+}
 td {
-font-size:10px;
-
+    font-size: 13px;
+    text-wrap: nowrap;
 }
 
 html {
@@ -35,3 +54,109 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+#TablaModalDetallesAlerta tbody tr:hover {
+    background-color: transparent !important;
+    cursor: default !important;
+    /* Elimina el hover */
+}
+.table tbody tr:hover {
+    cursor: pointer;
+    background-color: #17a2b8 !important;
+    color: #4A4A4A;
+    font-size: 15px !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    --bs-table-accent-bg: rgba(0, 0, 0, 0.03);
+}
+
+.page-titles {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+}
+
+/*     .form-select {
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+ */
+.btn {
+    border-radius: 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+}
+
+.card-title, .card-subtitle {
+    color: #343a40;
+}
+
+/* Mejoras para los modales */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+}
+
+/* Iconos en los títulos de las filas */
+.table tbody tr td:first-child i {
+    margin-right: 0.5rem;
+}
+
+/* Indicadores de colores */
+.table-danger {
+    background-color: #f8d7da !important;
+}
+
+.table-warning {
+    background-color: #fff3cd !important;
+}
+
+.table-success {
+    background-color: #d4edda !important;
+}
+
+.pagination {
+    display: ruby !important;
+}
+
+
+
+

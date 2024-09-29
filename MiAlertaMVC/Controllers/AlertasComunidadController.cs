@@ -19,25 +19,25 @@ namespace MiAlertaMVC.Controllers
             _logger = logger;
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        public async Task<IActionResult> Index(int idComunidad = 0)
+        public async Task<IActionResult> Index(int idComunidad = 0, int pageNumber = 1, int pageSize = 10)
         {
             var idUsuario = HttpContext.Session.GetString("idusuario");
             if (string.IsNullOrEmpty(idUsuario))
             {
-                // Manejar el caso donde no haya un idUsuario en la sesión
                 return RedirectToAction("Index", "Login");
             }
 
             int? usuarioId = Convert.ToInt32(idUsuario);
             var comunidades = new List<Comunidad>();
 
+            // Obtener comunidades
             using (var connection = new SqlConnection(_connectionString))
             {
                 var queryComunidades = @"
-        SELECT U.IDComunidad, U.Descripcion
-        FROM Comunidad U
-        INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
-        WHERE UC.EsAdmin = 1 AND UC.IDUsuario = @IDUsuario";
+            SELECT U.IDComunidad, U.Descripcion
+            FROM Comunidad U
+            INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
+            WHERE UC.EsAdmin = 1 AND UC.IDUsuario = @IDUsuario";
 
                 using (var command = new SqlCommand(queryComunidades, connection))
                 {
@@ -59,36 +59,58 @@ namespace MiAlertaMVC.Controllers
 
             List<AlertasComunidadViewModel> communities = new List<AlertasComunidadViewModel>();
 
+            // Paginación en la consulta principal
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
+                string countQuery = @"
+            SELECT COUNT(*)
+            FROM Comunidad U
+            INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
+            INNER JOIN Notificacion AS N ON N.IDComunidad = U.IDComunidad
+            LEFT JOIN Usuario AS UU ON UU.IDUsuario = N.IDUSUARIO
+            WHERE UC.EsAdmin = 1 
+                  AND UC.IDUsuario = @IDUSUARIO
+                  AND (@IDCOMUNIDAD = 0 OR N.IDComunidad = @IDCOMUNIDAD)";
+
+                int totalRecords;
+                using (var countCommand = new SqlCommand(countQuery, connection))
+                {
+                    countCommand.Parameters.AddWithValue("@IDUSUARIO", idUsuario);
+                    countCommand.Parameters.AddWithValue("@IDCOMUNIDAD", idComunidad);
+                    totalRecords = (int)await countCommand.ExecuteScalarAsync();
+                }
+
                 string query = @"
-        SELECT U.IDComunidad,
-               U.Descripcion,
-               n.TextoEmergencia,
-               n.Latitud,
-               n.Longitud,
-               n.FechaHora,
-               n.IDUsuario as IDUsuarioNotificacion,
-               COALESCE(UU.Correo,'-') AS Correo,
-               COALESCE(UU.Direccion,'-') as Direccion,
-               COALESCE(UU.Nombre,'-') as Nombre,
-               COALESCE(UU.NumeroTelefonico,'-') AS NumeroTelefonico
-        FROM Comunidad U
-        INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
-        INNER JOIN Notificacion AS N ON N.IDComunidad = U.IDComunidad
-        LEFT JOIN Usuario AS UU ON UU.IDUsuario = N.IDUSUARIO
-        WHERE UC.EsAdmin = 1 
-              AND UC.IDUsuario = @IDUSUARIO
-              AND (@IDCOMUNIDAD = 0 OR N.IDComunidad = @IDCOMUNIDAD)
-        ORDER BY FechaHora DESC";
+            SELECT U.IDComunidad,
+                   U.Descripcion,
+                   n.TextoEmergencia,
+                   n.Latitud,
+                   n.Longitud,
+                   n.FechaHora,
+                   n.IDUsuario as IDUsuarioNotificacion,
+                   COALESCE(UU.Correo,'-') AS Correo,
+                   COALESCE(UU.Direccion,'-') as Direccion,
+                   COALESCE(UU.Nombre,'-') as Nombre,
+                   COALESCE(UU.NumeroTelefonico,'-') AS NumeroTelefonico
+            FROM Comunidad U
+            INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
+            INNER JOIN Notificacion AS N ON N.IDComunidad = U.IDComunidad
+            LEFT JOIN Usuario AS UU ON UU.IDUsuario = N.IDUSUARIO
+            WHERE UC.EsAdmin = 1 
+                  AND UC.IDUsuario = @IDUSUARIO
+                  AND (@IDCOMUNIDAD = 0 OR N.IDComunidad = @IDCOMUNIDAD)
+            ORDER BY FechaHora DESC
+            OFFSET @Offset ROWS
+            FETCH NEXT @PageSize ROWS ONLY";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    // Agrega los parámetros a la consulta
                     command.Parameters.AddWithValue("@IDUSUARIO", idUsuario);
                     command.Parameters.AddWithValue("@IDCOMUNIDAD", idComunidad);
+                    command.Parameters.AddWithValue("@Offset", (pageNumber - 1) * pageSize);
+                    command.Parameters.AddWithValue("@PageSize", pageSize);
 
                     SqlDataReader reader = await command.ExecuteReaderAsync();
                     while (await reader.ReadAsync())
@@ -109,12 +131,18 @@ namespace MiAlertaMVC.Controllers
                         });
                     }
                 }
+
+                ViewBag.TotalRecords = totalRecords;
+                ViewBag.PageSize = pageSize;
+                ViewBag.CurrentPage = pageNumber;
+                ViewBag.TotalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
             }
 
             ViewBag.Comunidades = comunidades;
             ViewBag.ComunidadId = idComunidad;
             return View(communities);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> ExportToExcel([FromForm] string idComunidades)
@@ -310,25 +338,25 @@ namespace MiAlertaMVC.Controllers
                 await connection.OpenAsync();
 
                 string query = @"
-SELECT U.IDComunidad,
-       U.Descripcion,
-       n.TextoEmergencia,
-       n.Latitud,
-       n.Longitud,
-       n.FechaHora,
-       n.IDUsuario as IDUsuarioNotificacion,
-       COALESCE(UU.Correo,'-') AS Correo,
-       COALESCE(UU.Direccion,'-') as Direccion,
-       COALESCE(UU.Nombre,'-') as Nombre,
-       COALESCE(UU.NumeroTelefonico,'-') AS NumeroTelefonico
-FROM Comunidad U
-INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
-INNER JOIN Notificacion AS N ON N.IDComunidad = U.IDComunidad
-LEFT JOIN Usuario AS UU ON UU.IDUsuario = N.IDUSUARIO
-WHERE UC.EsAdmin = 1 
-      AND UC.IDUsuario = @IDUSUARIO
-      AND (@IDCOMUNIDAD = 0 OR N.IDComunidad = @IDCOMUNIDAD)
-ORDER BY FechaHora DESC";
+                                SELECT U.IDComunidad,
+                                       U.Descripcion,
+                                       n.TextoEmergencia,
+                                       n.Latitud,
+                                       n.Longitud,
+                                       n.FechaHora,
+                                       n.IDUsuario as IDUsuarioNotificacion,
+                                       COALESCE(UU.Correo,'-') AS Correo,
+                                       COALESCE(UU.Direccion,'-') as Direccion,
+                                       COALESCE(UU.Nombre,'-') as Nombre,
+                                       COALESCE(UU.NumeroTelefonico,'-') AS NumeroTelefonico
+                                FROM Comunidad U
+                                INNER JOIN UsuarioComunidad AS UC ON UC.IDComunidad = U.IDComunidad AND UC.EsAdmin = 1
+                                INNER JOIN Notificacion AS N ON N.IDComunidad = U.IDComunidad
+                                LEFT JOIN Usuario AS UU ON UU.IDUsuario = N.IDUSUARIO
+                                WHERE UC.EsAdmin = 1 
+                                      AND UC.IDUsuario = @IDUSUARIO
+                                      AND (@IDCOMUNIDAD = 0 OR N.IDComunidad = @IDCOMUNIDAD)
+                                ORDER BY FechaHora DESC";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

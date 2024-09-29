@@ -9,17 +9,17 @@
 }
 
 <style type="text/css">
-    .table tbody tr:hover {
-        cursor: pointer;
-        background-color: #20aee3;
-        color: white;
-    }
+    // .table tbody tr:hover {
+    //     cursor: pointer;
+    //     background-color: #20aee3;
+    //     color: white;
+    // }
 
-    /* Estilo para la fila seleccionada */
-    .table tbody tr.selected {
-        background-color: #20aee3;
-        color: white;
-    }
+    // /* Estilo para la fila seleccionada */
+    // .table tbody tr.selected {
+    //     background-color: #20aee3;
+    //     color: white;
+    // }
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -98,8 +98,8 @@
                                     </form>
 
                                     <div class="table-responsive">
-                                        <table class="table no-wrap">
-                                            <thead>
+                                        <table class="table no-wrap table-striped table-bordered">
+                                            <thead class="thead-dark">
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>ID Usuario</th>
@@ -126,7 +126,7 @@
                                                         data-nombre="@usuario.Nombre"
                                                         data-correo="@usuario.Correo"
                                                         data-telefono="@usuario.NumeroTelefonico"
-                                                        class="@(usuario.Validado == 1 ? "ok-row" : "error-row")">
+                                                        class="@(usuario.Validado == 1 ? "table-success" : "table-warning")">
                                                         <td>@usuario.IDUsuarioComunidad</td>
                                                         <td>@usuario.IDUsuario</td>
                                                         <td>@usuario.IDComunidad</td>
@@ -160,7 +160,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="userModalLabel">Detalles del Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -185,7 +185,57 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="successModalLabel">¡Éxito!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle " style="font-size: 4rem; color: green;"></i>
+                <p class="mt-3 fs-4">El usuario fue eliminado/bloqueado correctamente de la comunidad.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Modal de Error -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>No se pudo eliminar/bloquear al usuario de la comunidad. Por favor, intenta de nuevo.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="processingModal" tabindex="-1" aria-labelledby="processingModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="processingModalLabel">Procesando Descarga</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="spinner-border text-primary my-5 fs-4" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p>Generando el archivo Excel, por favor espere...</p>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 @section Scripts {
     <script>
@@ -211,15 +261,30 @@
                     },
                     success: function (response) {
                         if (response.success) {
-                            $('#userModal').modal('hide'); // Cierra el modal de usuario
-                            // Opcional: Actualiza la tabla o realiza otras acciones
-                            location.reload(); // Recarga la página
+                            $('#userModal').modal('hide'); // Cierra el modal actual
+
+                            // Mostrar el modal de éxito
+                            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                            successModal.show();
+
+                            // Opcional: Recarga la página después de cerrar el modal de éxito
+                            $('#successModal').on('hidden.bs.modal', function () {
+                                location.reload(); // Recarga la página cuando se cierra el modal de éxito
+                            });
                         } else {
-                            alert('No se pudo eliminar al usuario.');
+                            $('#userModal').modal('hide'); // Cierra el modal actual
+
+                            // Mostrar el modal de error
+                            const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                            errorModal.show();
                         }
                     },
                     error: function () {
-                        alert('Error al intentar eliminar al usuario.');
+                        $('#userModal').modal('hide'); // Cierra el modal actual
+
+                        // Mostrar el modal de error
+                        const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                        errorModal.show();
                     }
                 });
             });
@@ -238,14 +303,19 @@
                     success: function (response) {
                         if (response.success) {
                             $('#userModal').modal('hide'); // Cierra el modal de usuario
-                            // Opcional: Actualiza la tabla o realiza otras acciones
-                            location.reload(); // Recarga la página
+                            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                            successModal.show();
+
+                            // Opcional: Recarga la página después de cerrar el modal de éxito
+                            $('#successModal').on('hidden.bs.modal', function () {
+                                location.reload(); // Recarga la página cuando se cierra el modal de éxito
+                            });
                         } else {
-                            alert('No se pudo eliminar al usuario.');
+                            $('#errorModal').modal('show');
                         }
                     },
                     error: function () {
-                        alert('Error al intentar eliminar al usuario.');
+                        $('#errorModal').modal('show');
                     }
                 });
             });
@@ -297,84 +367,83 @@
                 $('#deleteButton').prop('disabled', !anyChecked);
                 $('#blockButton').prop('disabled', !anyChecked);
             });
-
-            $('#blockButton').on('click', function () {
-                // Lógica para bloquear el usuario
-                alert('Bloquear usuario con ID: ' + $('#modalUserId').text());
-                $('#userModal').modal('hide');
-            });
+          
 
             $('#confirmDeleteModal').off('hidden.bs.modal').on('hidden.bs.modal', function () {
                 userIdToDelete = null;
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('exportButton').addEventListener('click', function () {
+            console.log("OK - funcion click otorgada correctamente 1.");
 
-            document.getElementById('exportButton').addEventListener('click', function () {
+            const selectElement = document.getElementById('comunidadId');
+            console.log("selectElement: " + selectElement);
 
-                console.log("OK - funcion click otorgada correctamente 1.");
+            if (selectElement) {
+                const selectedOptionsTexts = [];
 
-                const selectElement = document.getElementById('comunidadId');
-                console.log("selectElement: " + selectElement);
-
-                if (selectElement) {
-                    const selectedOptionsTexts = [];
-
-                    // Recorrer todas las opciones del select y obtener los textos
-                    for (let i = 0; i < selectElement.options.length; i++) {
-                        const optionText = selectElement.options[i].text;
-                        selectedOptionsTexts.push(optionText); // Agregar el texto al array
-                    }
-
-                    console.log(selectedOptionsTexts); // Aquí obtienes todos los textos de las opciones
-
-                    const formData = new FormData();
-
-                    // Enviar el array como una cadena JSON
-                    formData.append('planIds', JSON.stringify(selectedOptionsTexts));
-                    console.log("formData: " + formData);
-
-                    fetch('/UsuarioComunidad/ExportToExcel', {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
-                        },
-                        body: formData
-                    })
-                        .then(response => {
-                            if (!response.ok) {
-                                console.log("ERROR");
-                                throw new Error('Error en la descarga del archivo');
-                            }
-                            // Obtener el nombre del archivo desde los headers de la respuesta
-                            const contentDisposition = response.headers.get('Content-Disposition');
-                            let fileName = 'exported_data.xlsx'; // Valor predeterminado
-                            if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
-                                const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
-                                if (matches != null && matches[1]) {
-                                    fileName = matches[1].replace(/['"]/g, '');
-                                }
-                            }
-                            return response.blob().then(blob => ({ blob, fileName }));
-                        })
-                        .then(({ blob, fileName }) => {
-                            const url = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = fileName;
-                            document.body.appendChild(a);
-                            a.click();
-                            a.remove();
-                            window.URL.revokeObjectURL(url);
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                } else {
-                    console.error("El elemento con id 'planSelect' no se encontró en el DOM.");
+                // Recorrer todas las opciones del select y obtener los textos
+                for (let i = 0; i < selectElement.options.length; i++) {
+                    const optionText = selectElement.options[i].text;
+                    selectedOptionsTexts.push(optionText); // Agregar el texto al array
                 }
-            });
+
+                console.log(selectedOptionsTexts); // Aquí obtienes todos los textos de las opciones
+
+                const formData = new FormData();
+
+                // Enviar el array como una cadena JSON
+                formData.append('planIds', JSON.stringify(selectedOptionsTexts));
+                console.log("formData: " + formData);
+
+                // Mostrar el modal de carga
+                const processingModal = new bootstrap.Modal(document.getElementById('processingModal'));
+                processingModal.show();
+
+                fetch('/UsuarioComunidad/ExportToExcel', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '@Html.AntiForgeryToken()'
+                    },
+                    body: formData
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            console.log("ERROR");
+                            throw new Error('Error en la descarga del archivo');
+                        }
+                        // Obtener el nombre del archivo desde los headers de la respuesta
+                        const contentDisposition = response.headers.get('Content-Disposition');
+                        let fileName = 'exported_data.xlsx'; // Valor predeterminado
+                        if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                            const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
+                            if (matches != null && matches[1]) {
+                                fileName = matches[1].replace(/['"]/g, '');
+                            }
+                        }
+                        return response.blob().then(blob => ({ blob, fileName }));
+                    })
+                    .then(({ blob, fileName }) => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        // Ocultar el modal de carga después de que se complete la descarga
+                        processingModal.hide();
+                    });
+            } else {
+                console.error("El elemento con id 'planSelect' no se encontró en el DOM.");
+            }
         });
     </script>
 }

@@ -21,17 +21,18 @@ namespace MiAlertaMVC.Controllers
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<IActionResult> Log(string filter = null)
+        public async Task<IActionResult> Log(int pageNumber = 1, int pageSize = 10, string filter = null)
         {
             var idUsuario = HttpContext.Session.GetString("idusuario");
 
             if (string.IsNullOrEmpty(idUsuario))
             {
-                // Manejar el caso donde no haya un idUsuario en la sesión
                 return RedirectToAction("Index", "Login");
             }
+
             List<LogViewModel> logs = new List<LogViewModel>();
             Dictionary<string, int> countResults = new Dictionary<string, int>();
+            int totalLogs = 0;
 
             try
             {
@@ -39,13 +40,37 @@ namespace MiAlertaMVC.Controllers
                 {
                     await connection.OpenAsync();
 
-                    // Retrieve logs
-                    string query = "SELECT  TOP 200 * FROM Log";
+                    // Retrieve total log count
+                    string countQuery = "SELECT COUNT(*) FROM Log";
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        countQuery += " WHERE Respuesta = @filter";
+                    }
+
+                    using (SqlCommand countCommand = new SqlCommand(countQuery, connection))
+                    {
+                        if (!string.IsNullOrEmpty(filter))
+                        {
+                            countCommand.Parameters.Add(new SqlParameter("@filter", filter));
+                        }
+                        totalLogs = (int)await countCommand.ExecuteScalarAsync();
+                    }
+
+                    // Retrieve logs with pagination
+                    string query = @"
+                SELECT * FROM (
+                    SELECT ROW_NUMBER() OVER(ORDER BY FechaCreacion DESC) AS RowNum, * 
+                    FROM Log";
+
                     if (!string.IsNullOrEmpty(filter))
                     {
                         query += " WHERE Respuesta = @filter";
                     }
-                    query += " ORDER BY FechaCreacion DESC"; // Ordenar por fecha de creación después del filtro
+
+                    query += $@"
+                ) AS Result
+                WHERE RowNum BETWEEN @startRow AND @endRow
+                ORDER BY FechaCreacion DESC";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -54,20 +79,26 @@ namespace MiAlertaMVC.Controllers
                             command.Parameters.Add(new SqlParameter("@filter", filter));
                         }
 
+                        int startRow = (pageNumber - 1) * pageSize + 1;
+                        int endRow = startRow + pageSize - 1;
+
+                        command.Parameters.AddWithValue("@startRow", startRow);
+                        command.Parameters.AddWithValue("@endRow", endRow);
+
                         using (SqlDataReader reader = await command.ExecuteReaderAsync())
                         {
                             while (await reader.ReadAsync())
                             {
                                 logs.Add(new LogViewModel
                                 {
-                                    IDLog = reader.GetInt32(0),
-                                    Funcion = reader.GetString(1),
-                                    Texto = reader.GetString(2),
-                                    Categoria = reader.GetString(3),
-                                    Respuesta = reader.GetString(4),
-                                    Campo1 = reader.GetString(5),
-                                    IDUsuario = reader.GetInt32(6),
-                                    FechaCreacion = reader.GetDateTime(7)
+                                    IDLog = reader.GetInt32(1),
+                                    Funcion = reader.GetString(2),
+                                    Texto = reader.GetString(3),
+                                    Categoria = reader.GetString(4),
+                                    Respuesta = reader.GetString(5),
+                                    Campo1 = reader.GetString(6),
+                                    IDUsuario = reader.GetInt32(7),
+                                    FechaCreacion = reader.GetDateTime(8)
                                 });
                             }
                         }
@@ -80,17 +111,21 @@ namespace MiAlertaMVC.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while retrieving logs.");
-                // Opcional: Redirigir a una página de error o mostrar un mensaje de error en la vista
             }
 
             var model = new LogPageViewModel
             {
                 Logs = logs,
-                LogCounts = countResults
+                LogCounts = countResults,
+                CurrentPage = pageNumber,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalLogs = totalLogs
             };
 
             return View(model);
         }
+
 
         private async Task<Dictionary<string, int>> GetLogCounts()
         {
